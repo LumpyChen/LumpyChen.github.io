@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2016-09-18T15:32:20.000Z</updated>
+  <updated>2016-09-26T11:54:47.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -14,6 +14,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式快速入门</title>
+    <link href="http://lumpychen.github.io/2016/zh-cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/正则表达式快速入门/</id>
+    <published>2016-09-26T02:26:09.000Z</published>
+    <updated>2016-09-26T11:54:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
+<p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
+<p>为什么不现在直接把它学会呢？</p>
+<a id="more"></a>
+<p>首先推一个可以帮助你理解正则的网站<a href="https://regexper.com" target="_blank" rel="external">正则表达式可视化</a></p>
+<p>还有一个 Atom 插件 <a href="https://atom.io/packages/regex-railroad-diagram" target="_blank" rel="external">regex-railroad-diagram</a></p>
+<p>这样的可视化模型可以帮助你快速回忆与熟悉正则字符的含义。</p>
+<h2 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式"></a>1.正则表达式</h2><p>正则表达式由两部分组成：</p>
+<ul>
+<li>原义文本字符：原义文本字符代表字符本身的匹配</li>
+<li>元字符：元字符是正则表达式中有特殊含义的字符</li>
+</ul>
+<p>在正则表达式中以下字符有特殊含义（它们会组成元字符）<br>只有通过转义之后它们才能作为原义文本字符使用：</p>
+<p><code>*</code>, <code>+</code>, <code>?</code>, <code>$</code>, <code>^</code>, <code>.</code>, <code>|</code>, <code>\</code>, <code>()</code>, <code>[]</code>, <code>{}</code></p>
+<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">制表符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\v</code></td>
+<td style="text-align:center">垂直制表符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">换行符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\r</code></td>
+<td style="text-align:center">回车</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\f</code></td>
+<td style="text-align:center">换页</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>c*</code></td>
+<td style="text-align:center">Ctrl+特定字符</td>
+</tr>
+</tbody>
+</table>
+<p>连用字符代表匹配连接成的多个字符，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1b2ab3'</span>.replace(<span class="regexp">/ab/</span>, <span class="string">'c'</span>)</div><div class="line"><span class="comment">// 'a1b2c3'</span></div></pre></td></tr></table></figure>
+<h4 id="字符特殊使用方式"><a href="#字符特殊使用方式" class="headerlink" title="字符特殊使用方式"></a>字符特殊使用方式</h4><p><code>[]</code>: 创建<em>类</em>——匹配<code>[]</code>中的任意字符</p>
+<p>特殊的 <em>类</em>：</p>
+<ul>
+<li><code>[^]</code>: 反相匹配——匹配不是<code>[^</code>和<code>]</code>中的任意字符</li>
+<li><code>[a-z]</code>: 字母匹配——从<code>a</code>到<code>z</code>的小写英文字母</li>
+</ul>
+<h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本。</p>
+<p>有两种构造方式：</p>
+<ul>
+<li>字面量方式</li>
+<li>构造函数方式</li>
+</ul>
+<h4 id="字面量方式"><a href="#字面量方式" class="headerlink" title="字面量方式"></a>字面量方式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span></div></pre></td></tr></table></figure>
+<p><code>RegExp</code>对象的实例由</p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>, <span class="string">'g'</span>)</div></pre></td></tr></table></figure>
+<p><code>RegExp</code>构造函数接受两个参数：</p>
+<ul>
+<li>包含正则表达式的一个字符串（注意在字符串中转义符需要转义输入）</li>
+<li>包含正则表达式修饰符的一个字符串</li>
+</ul>
+<p>推荐使用字面量方式进行 <code>RegExp</code> 实例的构建。</p>
+<p>####</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。&lt;/p&gt;
+&lt;p&gt;每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”&lt;/p&gt;
+&lt;p&gt;为什么不现在直接把它学会呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="develop" scheme="http://lumpychen.github.io/tags/develop/"/>
+    
+  </entry>
   
   <entry>
     <title>econometrics</title>
@@ -161,9 +255,9 @@
     </summary>
     
     
-      <category term="arrangement" scheme="http://lumpychen.github.io/tags/arrangement/"/>
-    
       <category term="course" scheme="http://lumpychen.github.io/tags/course/"/>
+    
+      <category term="arrangement" scheme="http://lumpychen.github.io/tags/arrangement/"/>
     
   </entry>
   
