@@ -2,21 +2,27 @@
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
 <p>为什么不现在直接把它学会呢？</p>
 <a id="more"></a>
+<hr>
 <p>首先推一个可以帮助你理解正则的网站<a href="https://regexper.com" target="_blank" rel="external">正则表达式可视化</a></p>
 <p>还有一个 Atom 插件 <a href="https://atom.io/packages/regex-railroad-diagram" target="_blank" rel="external">regex-railroad-diagram</a></p>
 <p>这样的可视化模型可以帮助你快速回忆与熟悉正则字符的含义。</p>
-<h2 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式"></a>1.正则表达式</h2><p>正则表达式由两部分组成：</p>
+<h2 id="1-简述"><a href="#1-简述" class="headerlink" title="1.简述"></a>1.简述</h2><p>正则表达式存在两种字符：</p>
 <ul>
-<li>原义文本字符：原义文本字符代表字符本身的匹配</li>
+<li>原义字符：原义文本字符代表字符本身的匹配</li>
 <li>元字符：元字符是正则表达式中有特殊含义的字符</li>
 </ul>
-<p>在正则表达式中以下字符有特殊含义（它们会组成元字符）<br>只有通过转义之后它们才能作为原义文本字符使用：</p>
+<p>在正则表达式中以下字符有特殊含义（因为它们会组成元字符）<br>只有通过转义之后它们才能作为原义文本字符来使用：</p>
 <p><code>*</code>, <code>+</code>, <code>?</code>, <code>$</code>, <code>^</code>, <code>.</code>, <code>|</code>, <code>\</code>, <code>()</code>, <code>[]</code>, <code>{}</code></p>
-<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><table>
+<h4 id="原义字符"><a href="#原义字符" class="headerlink" title="原义字符"></a>原义字符</h4><p>正则表达式中原义字符会匹配与之相同的字符</p>
+<p>正则表达式<code>/a/</code>会匹配字符串<code>&#39;a1b2c3&#39;</code>中的<code>a</code></p>
+<p>连续使用字符代表匹配连接成的多个字符，比如：</p>
+<p>正则表达式<code>/ab3/</code>会匹配<code>a1b2ab3</code>中的<code>ab3</code></p>
+<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><p>这几个组合成的元字符会匹配相应特殊字符：</p>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
-<th style="text-align:center">含义</th>
+<th style="text-align:center">匹配特殊字符</th>
 </tr>
 </thead>
 <tbody>
@@ -46,15 +52,60 @@
 </tr>
 </tbody>
 </table>
-<p>连用字符代表匹配连接成的多个字符，比如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1b2ab3'</span>.replace(<span class="regexp">/ab/</span>, <span class="string">'c'</span>)</div><div class="line"><span class="comment">// 'a1b2c3'</span></div></pre></td></tr></table></figure>
+<p>连续使用字符代表匹配连接成的多个字符，比如：<br><code>a1b2ab3</code>里面，/ab/</p>
 <h4 id="字符特殊使用方式"><a href="#字符特殊使用方式" class="headerlink" title="字符特殊使用方式"></a>字符特殊使用方式</h4><p><code>[]</code>: 创建<em>类</em>——匹配<code>[]</code>中的任意字符</p>
+<p>类中字符的连写代表<em>或</em>的关系——满足连写的字符其中一者就将会被匹配</p>
 <p>特殊的 <em>类</em>：</p>
 <ul>
 <li><code>[^]</code>: 反相匹配——匹配不是<code>[^</code>和<code>]</code>中的任意字符</li>
-<li><code>[a-z]</code>: 字母匹配——从<code>a</code>到<code>z</code>的小写英文字母</li>
+<li><code>[a-z]</code>: 小写字母匹配——从<code>a</code>到<code>z</code>的小写英文字符</li>
+<li><code>[A-Z]</code>: 大写字母匹配——从<code>A</code>到<code>Z</code>的大写英文字符</li>
+<li><code>[0-9]</code>: 数字匹配——从<code>0</code>到<code>9</code>的数字字符</li>
 </ul>
-<h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本。</p>
+<p>同时有一些等价的元字符方便使用：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符</th>
+<th style="text-align:center">等价类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">[^\r\n]</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:center">[0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:center">[^0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">[\t\n\x0B\f\r]</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:center">[^\t\n\x0B\f\r]</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">[a-zA-Z_0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">[^a-zA-Z_0-9]</td>
+</tr>
+</tbody>
+</table>
+<p>具体什么含义？根据之前的线索推断一下吧 : )</p>
+<h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p>在<code>JavaScript</code>中，由<code>/</code>开始，由<code>/</code>结束（或者跟随有效正则修饰符）的字段会被<code>JavaScript</code>编译器正确解析为一个<code>RegExp</code>对象。</p>
+<p>同时记得<code>//</code>并不会报出``</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="comment">//)</span></div><div class="line"><span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本。</p>
 <p>有两种构造方式：</p>
 <ul>
 <li>字面量方式</li>
