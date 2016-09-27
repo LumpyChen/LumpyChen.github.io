@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2016-09-27T12:17:22.000Z</updated>
+  <updated>2016-09-27T12:18:57.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lumpychen.github.io/2016/zh-cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>http://lumpychen.github.io/2016/zh-cn/正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
-    <updated>2016-09-27T12:17:22.000Z</updated>
+    <updated>2016-09-27T12:18:57.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
@@ -152,15 +152,15 @@
 <td style="text-align:center">出现任意次</td>
 </tr>
 <tr>
-<td style="text-align:center">{n}</td>
+<td style="text-align:center"><code>{n}</code></td>
 <td style="text-align:center">出现n次</td>
 </tr>
 <tr>
-<td style="text-align:center">{n,m}</td>
+<td style="text-align:center"><code>{n,m}</code></td>
 <td style="text-align:center">出现n到m次</td>
 </tr>
 <tr>
-<td style="text-align:center">{n,}</td>
+<td style="text-align:center"><code>{n,}</code></td>
 <td style="text-align:center">至少出现n次</td>
 </tr>
 </tbody>
