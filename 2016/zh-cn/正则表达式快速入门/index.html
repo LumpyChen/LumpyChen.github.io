@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 正则表达式快速入门 · LANTAU</title><meta name="description" content="教你快速学会这个你知道干什么用却懒得学的东西。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://lumpychen.github.io/atom.xml" title="LANTAU"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/irvingchen" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="www.lumpychen.com/cv" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/lumpychen" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">正则表达式快速入门</h1><div class="post-info">2016年9月26日</div><div class="post-tags"><a href="/tags/develop/" class="post-tag"> develop</a></div><div class="post-content"><link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
+<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JS正则表达式快速入门 · LANTAU</title><meta name="description" content="教你快速学会这个你知道干什么用却懒得学的东西。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://lumpychen.github.io/atom.xml" title="LANTAU"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/irvingchen" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="www.lumpychen.com/cv" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/lumpychen" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">JS正则表达式快速入门</h1><div class="post-info">2016年9月26日</div><div class="post-tags"><a href="/tags/develop/" class="post-tag"> develop</a></div><div class="post-content"><link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
 <p>为什么不现在直接把它学会呢？</p>
 <a id="more"></a>
@@ -141,8 +141,24 @@
 </tr>
 </tbody>
 </table>
-<p>量匹配的元字符跟随在字符的后面生效，比如</p>
+<p>量匹配的元字符跟随在字符的后面生效，比如：</p>
 <p><code>T\d?</code>匹配后面最多出现一次数字字符的字符<code>T</code></p>
+<div class="tip"><br>进行<code>{n,m}</code>的匹配时，会出现重复满足匹配条件的情况，<br>用正则表达式<code>a\d{2,4}</code>对字符串<code>a123456</code>进行匹配，<br>匹配结果是<code>a12</code>,<code>a123</code>,<code>a1234</code>中的哪个呢？<br></div>
+
+<p>默认情况下，正则表达式处于贪婪模式，即尽可能多地匹配字符串，因此匹配结果应该是<code>a1234</code></p>
+<p>如果想进入非贪婪模式，需要在量词后面加一个问号：<code>a\d{2,4}?</code>，此时正则表达式一旦匹配成功就不会继续匹配</p>
+<p>此时匹配结果为<code>a12</code></p>
+<h4 id="分组匹配"><a href="#分组匹配" class="headerlink" title="分组匹配"></a>分组匹配</h4><p>在正则表达式中使用<code>()</code>可以在正则表达式中生成“组”</p>
+<p>“组”在字符组合的时候具有相对的优先级：</p>
+<p>当我们的正则表达式复杂的时候，我们需要分组进行元字符和字符的组合：</p>
+<p>比如我们使用<code>[a-z]\d{3}</code>匹配<code>a1b2c3d4</code>就是无效的，因为量匹配仅对其前面的字符有效，这个正则表达式的意思就是匹配一个后面跟随三个数字的字母</p>
+<p>当我们想要匹配另一种含义——“连续出现三次字母+数字时”，我们就需要采用分组匹配的方式：</p>
+<p>使用正则表达式<code>([a-z]\d){3}</code>匹配<code>a1b2c3d4</code>就会得到<code>a1b2c3</code></p>
+<p>同时我们可以使用分组匹配来配合<code>|</code>进行“或”的匹配效果，比如：</p>
+<p>使用正则表达式<code>Hel(lo|en)</code>对字符串<code>Hello Helen!</code>进行匹配，匹配得到的结果为</p>
+<p><code>Hello</code>和<code>Helen</code></p>
+<p>“组”除了优先级的提升，还有其他的特殊效果：</p>
+<p>分组匹配可以在替换的时候配合<code>$</code>进行反向引用，反向引用会在后面的章节进行讲解</p>
 <h4 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h4><p>边界匹配是采用元字符的一种特殊匹配方式：</p>
 <table>
 <thead>
@@ -183,23 +199,58 @@
 <p>根据这些规律的提示，加上你自己的练习，掌握边界匹配不需要太多时间。</p>
 <div class="tip"><br>  正则表达式默认会将一段文本中每个换行处转化为<code>\n</code>换行符，而这不会被<code>^</code>和<code>$</code>匹配，除非开启了多行模式。有关多行模式的内容，见下一章节。<br></div>
 
-<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p>在<code>JavaScript</code>中，由<code>/</code>开始，由<code>/</code>结束（或者跟随有效正则修饰符）的字段会被<code>JavaScript</code>编译器正确解析为一个<code>RegExp</code>对象。</p>
-<p>同时记得<code>//</code>并不会报出``</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>修饰符是针对于每个正则表达式设置的属性（它们之间互相不冲突）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>g</code></td>
+<td style="text-align:center">全局模式：对字符串从头开始不止一次地进行匹配</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>i</code></td>
+<td style="text-align:center">忽略大小写模式：忽略英文字母大小写</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>m</code></td>
+<td style="text-align:center">多行模式：令元字符<code>^</code>和<code>$</code>在多行模式下进行工作（行是由<code>\n</code>或<code>\r</code>分割的）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>u</code></td>
+<td style="text-align:center"><code>unicode</code>模式：将整个字符串当做<code>unicode</code>代码点的序列</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>y</code></td>
+<td style="text-align:center">黏性模式：</td>
+</tr>
+</tbody>
+</table>
+<div class="tip"><br>前文说过，我们之前的实例全部在默认使用的全局模式，如果不在全局模式之下，正则表达式只会匹配字符串从头开始的第一个字符段<br></div>
+
+<h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p>在<code>JavaScript</code>中，由<code>/</code>开始，由<code>/</code>结束（或者跟随有效正则修饰符）的字段会被<code>JavaScript</code>编译器正确解析为一个<code>RegExp</code>对象。</p>
+<p>同时<code>//</code>——空的正则表达式会被解析为注释</p>
 <p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本。</p>
 <p>有两种构造方式：</p>
 <ul>
 <li>字面量方式</li>
 <li>构造函数方式</li>
 </ul>
-<h4 id="字面量方式"><a href="#字面量方式" class="headerlink" title="字面量方式"></a>字面量方式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span></div></pre></td></tr></table></figure>
-<p><code>RegExp</code>对象的实例由</p>
+<h4 id="字面量方式"><a href="#字面量方式" class="headerlink" title="字面量方式"></a>字面量方式</h4><blockquote>
+<p><code>RegExp</code>对象的实例由<code>/</code>+正则表达式正文+<code>/</code>+正则表达式修饰符组成</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span></div></pre></td></tr></table></figure>
 <h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>, <span class="string">'g'</span>)</div></pre></td></tr></table></figure>
 <p><code>RegExp</code>构造函数接受两个参数：</p>
 <ul>
 <li>包含正则表达式的一个字符串（注意在字符串中转义符需要转义输入）</li>
 <li>包含正则表达式修饰符的一个字符串</li>
 </ul>
-<p>推荐使用字面量方式进行 <code>RegExp</code> 实例的构建。</p>
-<p>####</p>
+<p>因此我们更倾向于使用字面量方式进行 <code>RegExp</code> 实例的构建</p>
+<h4 id="RegExp的属性"><a href="#RegExp的属性" class="headerlink" title="RegExp的属性"></a>RegExp的属性</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下属性：</p>
+<h4 id="RegExp的方法"><a href="#RegExp的方法" class="headerlink" title="RegExp的方法"></a>RegExp的方法</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下方法：</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2016/en/Econometrics-OLS/" class="prev">上一篇</a><a href="/2016/en/Econometrics-regression/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
