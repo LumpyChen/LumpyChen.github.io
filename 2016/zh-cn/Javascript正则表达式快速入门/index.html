@@ -139,6 +139,8 @@
 </tr>
 </tbody>
 </table>
+<p>还包含其它的逻辑匹配</p>
+<p>|字符|结果|<br>|<code>x(?=y)</code>|只有当<code>x</code>后面紧跟着<code>y</code>时，才匹配<code>x</code>|<br>|<code>x(?!y)</code>|只有当<code>x</code>后面不是紧跟着<code>y</code>时，才匹配<code>x</code>|<br>|<code>x|y</code>|匹配<code>x</code>或<code>y</code>|</p>
 <p>量匹配的元字符跟随在字符的后面生效，比如：</p>
 <p><code>T\d?</code>匹配后面最多出现一次数字字符的字符<code>T</code></p>
 <div class="tip"><br>进行<code>{n,m}</code>的匹配时，会出现重复满足匹配条件的情况，<br>用正则表达式<code>a\d{2,4}</code>对字符串<code>a123456</code>进行匹配，<br>会匹配到<code>a12</code>,<code>a123</code>,<code>a1234</code>中的哪个呢？<br></div>
@@ -152,12 +154,14 @@
 <p>比如我们使用<code>[a-z]\d{3}</code>匹配<code>a1b2c3d4</code>就是无效的，因为量匹配仅对其前面的字符有效，这个正则表达式的意思就是匹配一个后面跟随三个数字的字母</p>
 <p>当我们想要匹配另一种含义——“连续出现三次字母+数字时”，我们就需要采用分组匹配的方式：</p>
 <p>使用正则表达式<code>([a-z]\d){3}</code>匹配<code>a1b2c3d4</code>就会得到<code>a1b2c3</code></p>
-<p>同时我们可以使用分组匹配来配合<code>|</code>进行“或”的匹配效果，比如：</p>
+<p>同时我们可以使用分组匹配来配合逻辑元字符进行不同逻辑的匹配效果，比如：</p>
 <p>使用正则表达式<code>Hel(lo|en)</code>对字符串<code>Hello Helen!</code>进行匹配，匹配得到的结果为</p>
 <p><code>Hello</code>和<code>Helen</code></p>
 <p>“组”除了优先级的提升，还有其他的特殊效果：</p>
 <p>分组匹配可以在替换的时候配合<code>$</code>进行反向引用，反向引用会在后面的章节进行讲解</p>
 <p>同时也可以通过<code>exec</code>方法被分拣到数组里面（见后面章节）</p>
+<div class="tips"><br>如果我们仅仅想使用括号操作元字符效果的范围，并不想生产分组匹配的“组”并实现相关特殊效果，我们可以使用<code>(?:</code>+内容+<code>)</code>的括号来达成目的<br></div>
+
 <h4 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h4><p>边界匹配是采用元字符的一种特殊匹配方式：</p>
 <table>
 <thead>
@@ -335,11 +339,12 @@
 <p>第二个参数作为函数的话有这几个（至少三个以上）个参数：</p>
 <ul>
 <li>第<code>1</code>个参数：匹配到的文本字符串</li>
-<li>第<code>2——n</code>个参数：分组匹配到的内容（设进行了<code>n-1</code>次分组匹配）</li>
+<li>第<code>2</code>到第<code>n</code>个参数：分组匹配到的内容（设进行了<code>n-1</code>次分组匹配）</li>
 <li>第<code>n+1</code>个参数：匹配项在字符串中的<code>index</code></li>
 <li>第<code>n+2</code>个参数：原字符串</li>
 </ul>
-<p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
+<p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，</p>
+<p>接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
 <p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
 <div class="tip"><br>  在可以是<code>RegExp</code>可以是字符串的参数，我们如果提供字符串作为参数，就会被自动转化为<code>RegExp</code>对象 —— 不附带任何修饰模式，实例如下：<br></div>
 
