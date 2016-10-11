@@ -59,10 +59,10 @@
   
   <entry>
     <title>JS正则表达式快速入门</title>
-    <link href="http://lumpychen.github.io/2016/zh-cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
-    <id>http://lumpychen.github.io/2016/zh-cn/正则表达式快速入门/</id>
+    <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/Javascript正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
-    <updated>2016-10-10T13:32:33.000Z</updated>
+    <updated>2016-10-11T17:18:26.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
@@ -115,17 +115,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-字符匹配方式"><a href="#2-字符匹配方式" class="headerlink" title="2.字符匹配方式"></a>2.字符匹配方式</h2><p>我们先做出在全局模式的进行匹配的假设</p>
-<p>全局模式会在下一章节进行介绍</p>
-<h4 id="正常匹配："><a href="#正常匹配：" class="headerlink" title="正常匹配："></a>正常匹配：</h4><p>在正则表达式中使用原义字符或组合成的特殊字符会正常匹配相应字符</p>
+<h2 id="2-字符匹配方式"><a href="#2-字符匹配方式" class="headerlink" title="2.字符匹配方式"></a>2.字符匹配方式</h2><h4 id="正常匹配："><a href="#正常匹配：" class="headerlink" title="正常匹配："></a>正常匹配：</h4><p>在正则表达式中使用原义字符或组合成的特殊字符会正常匹配相应字符</p>
 <p>在正则表达式中使用<code>a</code>会匹配文本<code>a1b2ab3</code>中第一个字符<code>a</code>和倒数第三个字符<code>a</code></p>
 <h4 id="字段匹配："><a href="#字段匹配：" class="headerlink" title="字段匹配："></a>字段匹配：</h4><p>在正则表达式中使用连续的原义字符或组合而成的特殊字符会匹配相应字符组合</p>
 <p>在正则表达式中使用<code>ab</code>会匹配文本<code>a1b2ab3</code>中倒数第二三个字符<code>ab</code></p>
 <h4 id="类匹配："><a href="#类匹配：" class="headerlink" title="类匹配："></a>类匹配：</h4><p>在正则表达式中使用元字符：</p>
-<p><code>[]</code>: 创建<em>类</em>将匹配<code>[]</code>中的任意字符</p>
+<p><code>[ ]</code>: 创建<em>类</em>将匹配<code>[ ]</code>中的任意字符</p>
 <p>类中字符的连写代表<em>或</em>的关系——满足连写的字符其中一者就将会被匹配</p>
 <p>正则表达式中使用<code>[ab]</code>会匹配文本<code>a1b2ab3</code>中所有的<code>a</code>与<code>b</code>字符</p>
-<p>特殊的 <em>类</em>：</p>
+<p>特殊的<em>类</em>：</p>
 <ul>
 <li><code>[^]</code>: 反相匹配——匹配不是<code>[^</code>和<code>]</code>中的任意字符</li>
 <li><code>[a-z]</code>: 小写字母匹配——从<code>a</code>到<code>z</code>的小写英文字符</li>
@@ -209,7 +207,7 @@
 </table>
 <p>量匹配的元字符跟随在字符的后面生效，比如：</p>
 <p><code>T\d?</code>匹配后面最多出现一次数字字符的字符<code>T</code></p>
-<div class="tip"><br>进行<code>{n,m}</code>的匹配时，会出现重复满足匹配条件的情况，<br>用正则表达式<code>a\d{2,4}</code>对字符串<code>a123456</code>进行匹配，<br>匹配结果是<code>a12</code>,<code>a123</code>,<code>a1234</code>中的哪个呢？<br></div>
+<div class="tip"><br>进行<code>{n,m}</code>的匹配时，会出现重复满足匹配条件的情况，<br>用正则表达式<code>a\d{2,4}</code>对字符串<code>a123456</code>进行匹配，<br>会匹配到<code>a12</code>,<code>a123</code>,<code>a1234</code>中的哪个呢？<br></div>
 
 <p>默认情况下，正则表达式处于贪婪模式，即尽可能多地匹配字符串，因此匹配结果应该是<code>a1234</code></p>
 <p>如果想进入非贪婪模式，需要在量词后面加一个问号：<code>a\d{2,4}?</code>，此时正则表达式一旦匹配成功就不会继续匹配</p>
@@ -225,6 +223,7 @@
 <p><code>Hello</code>和<code>Helen</code></p>
 <p>“组”除了优先级的提升，还有其他的特殊效果：</p>
 <p>分组匹配可以在替换的时候配合<code>$</code>进行反向引用，反向引用会在后面的章节进行讲解</p>
+<p>同时也可以通过<code>exec</code>方法被分拣到数组里面（见后面章节）</p>
 <h4 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h4><p>边界匹配是采用元字符的一种特殊匹配方式：</p>
 <table>
 <thead>
@@ -253,12 +252,12 @@
 </tbody>
 </table>
 <p>这些字符本身并不匹配字符，匹配的是特定的边界</p>
-<p>在字符串<code>There HiThere There</code>中使用</p>
+<p>在字符串<code>There HiThere There</code>中使用（全局模式）</p>
 <ul>
-<li>正则表达式<code>^</code>/<code>$</code>替换为<code>#</code> —— <code>#There HiThere There</code> 与 <code>There HiThere There#</code></li>
-<li>正则表达式<code>^T</code>/<code>e$</code>替换为<code>#</code> —— <code>#here HiThere There</code> 与 <code>There HiThere Ther#</code></li>
-<li>正则表达式<code>\b</code>替换为<code>#</code> —— <code>#There# #HiThere# #There#</code></li>
-<li>正则表达式<code>\bT</code>替换为<code>#</code> —— <code>#here HiThere #here</code></li>
+<li>正则表达式<code>^</code>/<code>$</code>结果替换为<code>#</code> —— <code>#There HiThere There</code> 与 <code>There HiThere There#</code></li>
+<li>正则表达式<code>^T</code>/<code>e$</code>结果替换为<code>#</code> —— <code>#here HiThere There</code> 与 <code>There HiThere Ther#</code></li>
+<li>正则表达式<code>\b</code>结果替换为<code>#</code> —— <code>#There# #HiThere# #There#</code></li>
+<li>正则表达式<code>\bT</code>结果替换为<code>#</code> —— <code>#here HiThere #here</code></li>
 <li>正则表达式<code>\bThere\b</code> —— 匹配第一个单词<code>There</code>与最后一个单词<code>There</code></li>
 <li>正则表达式<code>\BThere\b</code> —— 匹配<code>HiThere</code>里面的<code>There</code></li>
 </ul>
@@ -287,21 +286,20 @@
 <td style="text-align:center">多行模式：令元字符<code>^</code>和<code>$</code>在多行模式下进行工作（行是由<code>\n</code>或<code>\r</code>分割的）</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>u</code></td>
-<td style="text-align:center"><code>unicode</code>模式：将整个字符串当做<code>unicode</code>代码点的序列</td>
-</tr>
-<tr>
 <td style="text-align:center"><code>y</code></td>
-<td style="text-align:center">黏性模式：</td>
+<td style="text-align:center">黏性模式：只从<code>lastIndex</code>位置开始匹配（且不试图从任何之后的索引匹配）</td>
 </tr>
 </tbody>
 </table>
-<div class="tip"><br>前文说过，我们之前的实例全部在默认使用的全局模式，如果不在全局模式之下，正则表达式只会匹配字符串从头开始的第一个字符段<br></div>
+<div class="tip"><br><code>Javascript</code>全局模式下重复匹配会有一些奇怪的事情发生（比如下面这段代码）这是因为<code>lastIndex</code>属性在全局模式下生效，其具体特性见后面的章节<br></div>
 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/g</span></div><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\w/</span></div><div class="line">reg.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div><div class="line">reg.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//false</span></div><div class="line">reg1.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div><div class="line">reg1.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>而且，前文说过，我们之前的实例全部在默认使用全局模式，如果不在全局模式之下，正则表达式只会匹配字符串从头开始的第一个字符段</p>
 <h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p>在<code>JavaScript</code>中，由<code>/</code>开始，由<code>/</code>结束（或者跟随有效正则修饰符）的字段会被<code>JavaScript</code>编译器正确解析为一个<code>RegExp</code>对象。</p>
-<p>同时<code>//</code>——空的正则表达式会被解析为注释</p>
-<p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本。</p>
-<p>有两种构造方式：</p>
+<p>同时<code>//</code> —— 空的正则表达式会被解析为注释</p>
+<p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本</p>
+<p><code>RegExp</code>的详细特性在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">mdn</a>上有详细讲解与实例</p>
+<p><code>RegExp</code>有两种构造方式：</p>
 <ul>
 <li>字面量方式</li>
 <li>构造函数方式</li>
@@ -317,8 +315,101 @@
 <li>包含正则表达式修饰符的一个字符串</li>
 </ul>
 <p>因此我们更倾向于使用字面量方式进行 <code>RegExp</code> 实例的构建</p>
-<h4 id="RegExp的属性"><a href="#RegExp的属性" class="headerlink" title="RegExp的属性"></a>RegExp的属性</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下属性：</p>
-<h4 id="RegExp的方法"><a href="#RegExp的方法" class="headerlink" title="RegExp的方法"></a>RegExp的方法</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下方法：</p>
+<h4 id="RegExp对象的属性"><a href="#RegExp对象的属性" class="headerlink" title="RegExp对象的属性"></a>RegExp对象的属性</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下属性：</p>
+<ul>
+<li><code>RegExp.lastIndex</code></li>
+<li><code>RegExp.prototype.global</code></li>
+<li><code>RegExp.prototype.ignoreCase</code></li>
+<li><code>RegExp.prototype.mutiline</code></li>
+<li><code>RegExp.prototype.source</code></li>
+<li><code>RegExp.prototype.sticky</code></li>
+</ul>
+<p>以上属性中，除了<code>lastIndex</code>和<code>source</code>以外，其它属性都描述着<code>RegExp</code>对象的在构造时附件的修饰模式 – 由构造<code>RegExp</code>时附加的修饰符决定（它们都是布尔值）</p>
+<p><code>source</code>属性是<code>RegExp</code>对象正则表达式正文的字符串 —— 正则表达式<code>/</code>内部的内容</p>
+<p><code>lastIndex</code>是个复杂的属性，它相当<code>RegExp</code>上的一个标记，它可写，指定着下一次匹配的起始索引位置，同时也是匹配的上一次结果尾部后一个字符的索引位置（只有在全局模式下该属性才有效）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/</span></div><div class="line"><span class="keyword">while</span>(reg.test(<span class="string">'abc'</span>))&#123;</div><div class="line">  <span class="built_in">console</span>.log(reg.lastIndex)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>得到结果为<code>1</code>,<code>2</code>,<code>3</code></p>
+<p>全局正则表达式的匹配可以配合<code>lastIndex</code>进行匹配异步的驱动</p>
+<p>有很多与正则表达式有关的方法可以让我们更轻松地进行字符串操作：</p>
+<h4 id="RegExp对象的方法"><a href="#RegExp对象的方法" class="headerlink" title="RegExp对象的方法"></a>RegExp对象的方法</h4><p><code>JavaScript</code>中，<code>RegExp</code>有以下方法：</p>
+<ul>
+<li><code>RegExp.prototype.exec()</code></li>
+<li><code>RegExp.prototype.test()</code></li>
+<li><code>RegExp.prototype.toString()</code></li>
+</ul>
+<p><code>exec</code>方法接受一个字符串作为参数，返回一个数组：</p>
+<ul>
+<li>第一个元素是正则表达式匹配到的文本</li>
+<li>之后的元素都是依次排列的，正则表达式中从前到后每个分组匹配到的文本</li>
+<li>数组中存在两个索引：<ul>
+<li><code>index</code>: 匹配到字段开始的索引</li>
+<li><code>input</code>: 匹配的整体字符串</li>
+</ul>
+</li>
+<li>正则表达式匹配不到返回<code>null</code></li>
+</ul>
+<p>全局模式<code>RegExp</code>对象调用<code>exec</code>时，可以多次执行<code>exec</code>方法来查找同一个字符串中的其它的成功匹配，每次<code>exec</code>都会更新<code>lastIndex</code>属性</p>
+<p><code>test</code>方法接受一个字符串作为参数，如果正则表达式可以匹配到字符串里的字段，返回<code>true</code>，否则返回<code>false</code></p>
+<p><code>exec</code>方法和<code>test</code>方法在全局的<code>RegExp</code>对象执行时都会更新<code>lastIndex</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w\d/g</span>,</div><div class="line">  str = <span class="string">'a1b2c3d4'</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//0</span></div><div class="line">reg.test(str) <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//2</span></div><div class="line">reg.exec(str) <span class="comment">// [ 'b2', index: 2, input: 'a1b2c3d4'  ]</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">// 4</span></div></pre></td></tr></table></figure>
+<p>这个表格是测试后的<code>lastIndex</code>变化规律：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><code>lastIndex</code>索引范围</th>
+<th style="text-align:center">下一次匹配结果</th>
+<th style="text-align:center">下一次匹配<code>lastIndex</code>的调整</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">大于字符串的长度</td>
+<td style="text-align:center">一定失败</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">等于字符串的长度，<code>RegExp</code>不匹配空字符串</td>
+<td style="text-align:center">一定失败</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">等于字符串的长度，<code>RegExp</code>匹配空字符串</td>
+<td style="text-align:center">成功匹配到空字符串</td>
+<td style="text-align:center">不变</td>
+</tr>
+<tr>
+<td style="text-align:center">小于字符串的长度</td>
+<td style="text-align:center">在索引位置向后进行匹配的结果</td>
+<td style="text-align:center">下一次匹配到字段的后一位，匹配不到则归0</td>
+</tr>
+</tbody>
+</table>
+<p><code>toString</code>方法则返回是正则表达式的全文的字符串</p>
+<h4 id="其他与RegExp对象相关的方法"><a href="#其他与RegExp对象相关的方法" class="headerlink" title="其他与RegExp对象相关的方法"></a>其他与RegExp对象相关的方法</h4><ul>
+<li><code>String.prototype.match()</code></li>
+<li><code>String.prototype.replace()</code></li>
+<li><code>String.prototype.search()</code></li>
+<li><code>String.prototype.split()</code></li>
+</ul>
+<p><code>match</code>与<code>RegExp</code>的<code>exec</code>方法相似，接受一个<code>RegExp</code>对象为参数，返回一个包含匹配结果的数组：</p>
+<ul>
+<li>在非全局模式下，返回的数组包含和<code>RegExp.exec</code>一样的内容</li>
+<li>在全局模式下，返回包含所有匹配字段的数组</li>
+<li>如果不能匹配到，则返回<code>null</code></li>
+</ul>
+<p><code>replace</code>方法接受两个参数：第一个参数是<code>RegExp</code>或字符串，第二个参数为字符串或函数，字符串调用<code>replace</code>之后会将字符串中第一个参数正则匹配到的/出现的替换为某个字符串，详细请看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank" rel="external">mdn</a></p>
+<p>第二个参数作为函数的话有这几个（至少三个以上）个参数：</p>
+<ul>
+<li>第<code>1</code>个参数：匹配到的文本字符串</li>
+<li>第<code>2——n</code>个参数：分组匹配到的内容（设进行了<code>n-1</code>次分组匹配）</li>
+<li>第<code>n+1</code>个参数：匹配项在字符串中的<code>index</code></li>
+<li>第<code>n+2</code>个参数：原字符串</li>
+</ul>
+<p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
+<p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
+<div class="tip"><br>  在可以是<code>RegExp</code>可以是字符串的参数，我们如果提供字符串作为参数，就会被自动转化为<code>RegExp</code>对象 —— 不附带任何修饰模式，实例如下：<br></div>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//b1a2a3a4</span></div><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="regexp">/a/g</span>,<span class="string">'b'</span>) <span class="comment">//b1b2b3b4</span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
