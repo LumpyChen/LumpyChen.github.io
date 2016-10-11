@@ -358,6 +358,35 @@
 <li>如果不能匹配到，则返回<code>null</code></li>
 </ul>
 <p><code>replace</code>方法接受两个参数：第一个参数是<code>RegExp</code>或字符串，第二个参数为字符串或函数，字符串调用<code>replace</code>之后会将字符串中第一个参数正则匹配到的/出现的替换为某个字符串，详细请看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank" rel="external">mdn</a></p>
+<p>第二个参数作为字符串的话可以使用<code>$</code>号来进行反向引用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'$2$3$1'</span>)</div><div class="line"><span class="comment">// 10102016</span></div><div class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'\$2\$3\$1'</span>)</div></pre></td></tr></table></figure>
+<p>除了分组匹配，还有：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">代表的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>$$</code></td>
+<td style="text-align:center">插入个<code>$</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$&amp;</code></td>
+<td style="text-align:center">插入匹配的子串</td>
+</tr>
+<tr>
+<td style="text-align:center">`$``</td>
+<td style="text-align:center">插入当前匹配的子串左边的内容</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$&#39;</code></td>
+<td style="text-align:center">插入当前匹配的子串右边的内容</td>
+</tr>
+</tbody>
+</table>
 <p>第二个参数作为函数的话有这几个（至少三个以上）个参数：</p>
 <ul>
 <li>第<code>1</code>个参数：匹配到的文本字符串</li>
@@ -365,10 +394,9 @@
 <li>第<code>n+1</code>个参数：匹配项在字符串中的<code>index</code></li>
 <li>第<code>n+2</code>个参数：原字符串</li>
 </ul>
-<p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，</p>
-<p>接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
-<p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
-<div class="tip"><br>  在可以是<code>RegExp</code>可以是字符串的参数，我们如果提供字符串作为参数，就会被自动转化为<code>RegExp</code>对象 —— 不附带任何修饰模式，实例如下：<br></div>
+<div class="tip"><br>  <code>replace</code>的第一个参数，我们如果提供字符串作为参数，就会被自动转化为<code>RegExp</code>对象 —— 不附带任何修饰模式，实例如下： </div>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//b1a2a3a4</span></div><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="regexp">/a/g</span>,<span class="string">'b'</span>) <span class="comment">//b1b2b3b4</span></div></pre></td></tr></table></figure>
+<p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，<br>接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
+<p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2016/en/Econometrics-OLS/" class="prev">上一篇</a><a href="/2016/en/Econometrics-regression/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
