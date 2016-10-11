@@ -140,7 +140,29 @@
 </tbody>
 </table>
 <p>还包含其它的逻辑匹配</p>
-<p>|字符|结果|<br>|<code>x(?=y)</code>|只有当<code>x</code>后面紧跟着<code>y</code>时，才匹配<code>x</code>|<br>|<code>x(?!y)</code>|只有当<code>x</code>后面不是紧跟着<code>y</code>时，才匹配<code>x</code>|<br>|<code>x|y</code>|匹配<code>x</code>或<code>y</code>|</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>x(?=y)</code></td>
+<td style="text-align:center">只有当<code>x</code>后面紧跟着<code>y</code>时，才匹配<code>x</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x(?!y)</code></td>
+<td style="text-align:center">只有当<code>x</code>后面不是紧跟着<code>y</code>时，才匹配<code>x</code></td>
+</tr>
+<tr>
+<td style="text-align:center">`x</td>
+<td style="text-align:center">y`</td>
+<td>匹配<code>x</code>或<code>y</code></td>
+</tr>
+</tbody>
+</table>
 <p>量匹配的元字符跟随在字符的后面生效，比如：</p>
 <p><code>T\d?</code>匹配后面最多出现一次数字字符的字符<code>T</code></p>
 <div class="tip"><br>进行<code>{n,m}</code>的匹配时，会出现重复满足匹配条件的情况，<br>用正则表达式<code>a\d{2,4}</code>对字符串<code>a123456</code>进行匹配，<br>会匹配到<code>a12</code>,<code>a123</code>,<code>a1234</code>中的哪个呢？<br></div>
