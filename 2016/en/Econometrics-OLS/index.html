@@ -12,6 +12,39 @@
 <p>Why we use OLS?</p>
 <ul>
 <li>OLS is relative easy to use.</li>
-<li>The goal of minimizing</li>
+<li>The goal of minimizing \(e^2\) is appropriate from theory.</li>
+<li>OLS estimates have a number of useful characteristics.</li>
 </ul>
-<h2 id="Single-Independent-Variable-Model"><a href="#Single-Independent-Variable-Model" class="headerlink" title="Single-Independent-Variable Model"></a>Single-Independent-Variable Model</h2></div></article></div></section><footer><div class="paginator"><a href="/2016/zh-cn/Javascript正则表达式快速入门/" class="next">NEXT</a></div><div class="copyright"><p>© 2016 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h2 id="How-OLS-works"><a href="#How-OLS-works" class="headerlink" title="How OLS works"></a>How OLS works</h2><p>In a Single-Independent-Variable regression model:</p>
+<p>$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$</p>
+<p>We know that:</p>
+<p>$$ \sum e^2 = \sum (Y_i - \hat{\beta_0} -\hat{\beta_1}X_i)^2 $$</p>
+<p>From an equation with just one independent variable, these coefficients are:</p>
+<p>$$ \hat{\beta_1} = \frac{\sum_{i=1}^N[(X_i - X)(Y_i - Y)]}{\sum_{i=1}{N}(X_i - X)^2} $$</p>
+<p>$$ \hat{\beta_0} = Y - \hat{\beta_1}X $$</p>
+<p>In a mutivariate regression model, we also get the estimated coefficients expression, but it’s quite complicated, we prefer a computer’s calculation.</p>
+<p>But we should learn that the key is:</p>
+<blockquote><p>“Specifically, a multivariate coefficient indicates the change in the dependent variable associate with a one-unit increase in the independent variable in question <code>holding constant the other independent variables in the equation</code>.”</p>
+<footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote>
+<h2 id="Sum-of-Squares"><a href="#Sum-of-Squares" class="headerlink" title="Sum of Squares"></a>Sum of Squares</h2><p>To get a measure of the amount of variation to be explained by the regression, we use the squared variations, which called the total sum of squares.</p>
+<p>The Total Sum of Squares:</p>
+<p>$$ TSS = \sum_{i=1}^N(Y_i-Y)^2 $$</p>
+<p>The total sum of squares has two components:</p>
+<ul>
+<li>variation which can be explained by the regression – the explained sum of squares</li>
+<li>variation which can’t be explained by the regression – the residual sum of squares</li>
+</ul>
+<p>The explained sum of squares:</p>
+<p>$$ ESS = \sum_{i=1}^N(\hat{Y_i}-Y)^2 $$</p>
+<p>The residual sum of squares:</p>
+<p>$$ RSS = \sum_{i=1}^N(Y_i-\hat{Y_i}) $$</p>
+<p>The decomposition of variance:</p>
+<p>$$ TSS = ESS+ RSS $$</p>
+<h2 id="Describing-the-fit-of-a-estimated-model"><a href="#Describing-the-fit-of-a-estimated-model" class="headerlink" title="Describing the fit of a estimated model"></a>Describing the fit of a estimated model</h2><p>The simplest commonly used measure of fit is the coefficient of determination, \(R^2\), which equals to:</p>
+<p>$$ R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}, and 0&lt;=R^1&lt;=1 $$</p>
+<p>The higher \(R^2\) is, the closer the estimated regression equation fits it sample data.</p>
+<blockquote><p>“Since OLS selects the parameter estimates that minimize RSS, OLS provides the largest possible \(R^2\), given a linear model.”</p>
+<footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote>
+<h2 id="Adjust-R-2"><a href="#Adjust-R-2" class="headerlink" title="Adjust \(R^2\)"></a>Adjust \(R^2\)</h2><p>If we add another independent variable to a particular equation, we will find the equation with the greater number of independent variables will always have a better (or equal) fit, and \(R^2\) won’t decrease.</p>
+<p>In essence, \(R^2\) </p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/zh-cn/Javascript正则表达式快速入门/" class="next">NEXT</a></div><div class="copyright"><p>© 2016 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2016-10-10T09:20:04.000Z</updated>
+  <updated>2016-10-12T09:01:01.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lumpychen.github.io/2016/en/Econometrics-OLS/"/>
     <id>http://lumpychen.github.io/2016/en/Econometrics-OLS/</id>
     <published>2016-10-06T05:53:33.000Z</published>
-    <updated>2016-10-10T09:20:04.000Z</updated>
+    <updated>2016-10-12T09:01:01.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>This article contains notes of chapter 2 – Ordinary Least Squares.</p>
 <p>In the first place, we build an agreement that the purpose of regression analysis is to take a purely theoretical equation:</p>
@@ -36,9 +36,42 @@
 <p>Why we use OLS?</p>
 <ul>
 <li>OLS is relative easy to use.</li>
-<li>The goal of minimizing</li>
+<li>The goal of minimizing \(e^2\) is appropriate from theory.</li>
+<li>OLS estimates have a number of useful characteristics.</li>
 </ul>
-<h2 id="Single-Independent-Variable-Model"><a href="#Single-Independent-Variable-Model" class="headerlink" title="Single-Independent-Variable Model"></a>Single-Independent-Variable Model</h2>]]></content>
+<h2 id="How-OLS-works"><a href="#How-OLS-works" class="headerlink" title="How OLS works"></a>How OLS works</h2><p>In a Single-Independent-Variable regression model:</p>
+<p>$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$</p>
+<p>We know that:</p>
+<p>$$ \sum e^2 = \sum (Y_i - \hat{\beta_0} -\hat{\beta_1}X_i)^2 $$</p>
+<p>From an equation with just one independent variable, these coefficients are:</p>
+<p>$$ \hat{\beta_1} = \frac{\sum_{i=1}^N[(X_i - X)(Y_i - Y)]}{\sum_{i=1}{N}(X_i - X)^2} $$</p>
+<p>$$ \hat{\beta_0} = Y - \hat{\beta_1}X $$</p>
+<p>In a mutivariate regression model, we also get the estimated coefficients expression, but it’s quite complicated, we prefer a computer’s calculation.</p>
+<p>But we should learn that the key is:</p>
+<blockquote><p>“Specifically, a multivariate coefficient indicates the change in the dependent variable associate with a one-unit increase in the independent variable in question <code>holding constant the other independent variables in the equation</code>.”</p>
+<footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote>
+<h2 id="Sum-of-Squares"><a href="#Sum-of-Squares" class="headerlink" title="Sum of Squares"></a>Sum of Squares</h2><p>To get a measure of the amount of variation to be explained by the regression, we use the squared variations, which called the total sum of squares.</p>
+<p>The Total Sum of Squares:</p>
+<p>$$ TSS = \sum_{i=1}^N(Y_i-Y)^2 $$</p>
+<p>The total sum of squares has two components:</p>
+<ul>
+<li>variation which can be explained by the regression – the explained sum of squares</li>
+<li>variation which can’t be explained by the regression – the residual sum of squares</li>
+</ul>
+<p>The explained sum of squares:</p>
+<p>$$ ESS = \sum_{i=1}^N(\hat{Y_i}-Y)^2 $$</p>
+<p>The residual sum of squares:</p>
+<p>$$ RSS = \sum_{i=1}^N(Y_i-\hat{Y_i}) $$</p>
+<p>The decomposition of variance:</p>
+<p>$$ TSS = ESS+ RSS $$</p>
+<h2 id="Describing-the-fit-of-a-estimated-model"><a href="#Describing-the-fit-of-a-estimated-model" class="headerlink" title="Describing the fit of a estimated model"></a>Describing the fit of a estimated model</h2><p>The simplest commonly used measure of fit is the coefficient of determination, \(R^2\), which equals to:</p>
+<p>$$ R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}, and 0&lt;=R^1&lt;=1 $$</p>
+<p>The higher \(R^2\) is, the closer the estimated regression equation fits it sample data.</p>
+<blockquote><p>“Since OLS selects the parameter estimates that minimize RSS, OLS provides the largest possible \(R^2\), given a linear model.”</p>
+<footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote>
+<h2 id="Adjust-R-2"><a href="#Adjust-R-2" class="headerlink" title="Adjust \(R^2\)"></a>Adjust \(R^2\)</h2><p>If we add another independent variable to a particular equation, we will find the equation with the greater number of independent variables will always have a better (or equal) fit, and \(R^2\) won’t decrease.</p>
+<p>In essence, \(R^2\) </p>
+]]></content>
     
     <summary type="html">
     
@@ -62,7 +95,7 @@
     <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>http://lumpychen.github.io/2016/zh-cn/Javascript正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
-    <updated>2016-10-11T18:13:54.000Z</updated>
+    <updated>2016-10-12T09:17:46.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
@@ -465,6 +498,10 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//b1a2a3a4</span></div><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="regexp">/a/g</span>,<span class="string">'b'</span>) <span class="comment">//b1b2b3b4</span></div></pre></td></tr></table></figure>
 <p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，<br>接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
 <p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
+<p>如果不存在有效参数，则返回整个字符串在第一位的数组</p>
+<p>如果分隔符是一个空字符串，则会把原字符串中每个字符的装在数组里返回</p>
+<p>如果分隔符是包含分组匹配的正则表达式，则每次匹配到结果时，分组匹配到的结果也会插入到返回的数组中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\*/</span>,</div><div class="line">  reg2 = <span class="regexp">/(\*)/</span>,</div><div class="line">  str = <span class="string">'c*x*y'</span></div><div class="line">str.split(reg1) <span class="comment">// ["c", "x", "y"]</span></div><div class="line">str.split(reg2) <span class="comment">// ["c", "*", "x", "*", "y"]</span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
