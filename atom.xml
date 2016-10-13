@@ -95,7 +95,7 @@
     <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>http://lumpychen.github.io/2016/zh-cn/Javascript正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
-    <updated>2016-10-12T09:17:46.000Z</updated>
+    <updated>2016-10-12T13:51:15.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我们都爱正则表达式，但是一个个奇怪字符的组合总是让我这种弱鸡感到难以领悟。</p>
 <p>每次看到一个正则匹配式却理解不了，我都安慰自己：“反正我已经知道它是用来匹配文本的”</p>
@@ -502,6 +502,16 @@
 <p>如果分隔符是一个空字符串，则会把原字符串中每个字符的装在数组里返回</p>
 <p>如果分隔符是包含分组匹配的正则表达式，则每次匹配到结果时，分组匹配到的结果也会插入到返回的数组中</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\*/</span>,</div><div class="line">  reg2 = <span class="regexp">/(\*)/</span>,</div><div class="line">  str = <span class="string">'c*x*y'</span></div><div class="line">str.split(reg1) <span class="comment">// ["c", "x", "y"]</span></div><div class="line">str.split(reg2) <span class="comment">// ["c", "*", "x", "*", "y"]</span></div></pre></td></tr></table></figure>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p>写了这么多，笔者相信你们头都晕了 : )</p>
+<p>记住正则表达式的关键：</p>
+<p>在<code>Javascript</code>中</p>
+<p>正则表达式是用来进行文本匹配相关操作的一个特殊的内建对象</p>
+<p>由正文和修饰符组成</p>
+<p>正则表达式正文由两种字符组成：</p>
+<ul>
+<li>匹配自身的的原义字符</li>
+<li>匹配特殊字符或者调整匹配逻辑的元字符</li>
+</ul>
 ]]></content>
     
     <summary type="html">
