@@ -1,13 +1,83 @@
 <!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Javascript异步探讨 · LANTAU</title><meta name="description" content="探讨JavaScript异步编程的方案"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://lumpychen.github.io/atom.xml" title="LANTAU"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/irvingchen" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="www.lumpychen.com/cv" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/lumpychen" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="license"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><div class="license-text">Every post in this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You can check the source code at <a href="https://github.com/LumpyChen/LumpyChen.github.io">my github</a>.</div></section><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Javascript异步探讨</h1><div class="post-info">2016年10月17日</div><div class="post-tags"><a href="/tags/Javascript/" class="post-tag"> Javascript</a></div><div class="post-content"><link rel="stylesheet" href="/owl.css"><p>在<code>GUI</code>编程中，用单一线程进行<code>GUI</code>控制是通常的做法</p>
+<p>如果使用多线程来进行<code>GUI</code>编程，一个线程修改某个<code>UI</code>模块的属性，另一个线程直接删除这个<code>UI</code>模块，那么<code>UI</code>的表现将很难被预测</p>
 <p><code>Javascript</code>运行的环境是<code>单线程</code>的：每一个<code>window</code>或者一个<code>node.js</code>程序只有一个线程</p>
 <p>因此，在<code>JS</code>程序正在执行的某个时间，只有特定的某个语句正在执行（此时其它的语句会被阻塞）</p>
-<a id="more"></a>
-<h2 id="单线程模型"><a href="#单线程模型" class="headerlink" title="单线程模型"></a>单线程模型</h2><p>我个人很喜欢知乎上面<a href="https://www.zhihu.com/question/31982417/answer/54136684" target="_blank" rel="external">@云澹的回答</a></p>
+<p>我个人很喜欢知乎上面<a href="https://www.zhihu.com/question/31982417/answer/54136684" target="_blank" rel="external">@云澹的回答</a></p>
 <blockquote><p>运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列。所以当多个事件触发时，会依次放入队列，然后一个一个响应。</p>
 <footer><strong>@云澹</strong></footer></blockquote>
-<!--more-->
-<h2 id="单线程和异步"><a href="#单线程和异步" class="headerlink" title="单线程和异步"></a>单线程和异步</h2><p>我们先看一下回答中的代码段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"first"</span>)</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'second'</span>)</div><div class="line">  &#125;,<span class="number">5</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">  foo()</div><div class="line">&#125;</div><div class="line"><span class="comment">// 执行结果为：first*1000000, second*1000000</span></div></pre></td></tr></table></figure>
-<p>按照我们正常的思维，我们执行1000000次<code>foo</code>函数，每执行一次都会设置一个五毫秒的定时器然后<code>console.log</code>出<code>&quot;second&quot;</code>，但是我们发现控制台在几秒内一直在重复弹出<code>&quot;first&quot;</code>（这段时间远大于五毫秒），并没有<code>second</code>在这段时间弹出，直到所有<code>first</code>全部弹出完毕</p>
-<p>我们</p>
+<a id="more"></a>
+<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>在<code>Javascript</code>的主线程中，我们有一个<code>堆(heap)</code>和<code>栈(stack)</code>的结构：</p>
+<p><img src="http://image.slidesharecdn.com/sonlejs-event-loop-160805060652/95/javascript-event-loop-11-638.jpg?cb=1470377352" alt="heap&amp;stack"></p>
+<p>其中：</p>
+<ul>
+<li>堆的结构负责内存的分配</li>
+<li>栈的结构负责线程中要执行的内容，被称为<code>访问栈(call stack)</code></li>
+</ul>
+<p>我们可以看看<code>访问栈</code>的实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a*<span class="number">2</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> foo(b)</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printDouble</span>(<span class="params">c</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> sum = bar(c)</div><div class="line">  <span class="built_in">console</span>.log(sum)</div><div class="line">&#125;</div><div class="line">printDouble(<span class="number">100</span>)</div></pre></td></tr></table></figure>
+<p>在执行的过程中，我们的<code>访问栈</code>发生以下的变化：</p>
+<ol>
+<li>主线程进栈</li>
+<li><code>printDouble</code>进栈</li>
+<li><code>bar</code>进栈</li>
+<li><code>foo</code>进栈</li>
+<li><code>foo</code>出栈</li>
+<li><code>bar</code>出栈</li>
+<li><code>console.log</code>进栈</li>
+<li><code>console.log</code>出栈</li>
+<li><code>printDouble</code>出栈</li>
+<li>主线程出栈</li>
+</ol>
+<p>如果我们在<code>foo</code>函数中发生了错误，我们会得到报错信息：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Uncaught <span class="string">Error:</span> 发生了错误(…)  <span class="string">VM1436:</span><span class="number">1</span></div><div class="line">  foo @ <span class="string">VM14136:</span><span class="number">1</span></div><div class="line">  bar @ <span class="string">VM14205:</span><span class="number">1</span></div><div class="line">  printDouble @ <span class="string">VM14298:</span><span class="number">1</span></div><div class="line">  (anonymous function) @ <span class="string">VM14324:</span><span class="number">1</span></div></pre></td></tr></table></figure>
+<p>我们得到从上到下的结果就是所谓的<code>访问栈</code></p>
+<p>当我们得到了<code>RangeError: maximum call stack size exceeded</code>的报错信息时，就代表我们的访问栈的大小不够了，去检查你的程序中有没有进行无限循环调用的语句吧 : )</p>
+<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>因为<code>Javascript</code>是单线程，一个<code>Javascript</code>程序只有一个<code>访问栈</code>，函数语句按照进入的顺序一个接一个地被执行，前一个结束，才轮到后一个开始</p>
+<p>然而有的时候，某些函数语句的主要时间消耗并不在<code>CPU</code>上，而是在输入输出设备（包括网络）上面，比如<code>Ajax</code>，这样的任务消耗了很多时间，从而阻塞了后续任务的执行，同时也浪费了<code>CPU</code>的资源</p>
+<p>单线程任务同步执行的优势就是清晰易于理解，其缺陷就是经常会出现这种情况</p>
+<p>为了解决这个问题，我们把要执行的任务分为两种：<code>同步(synchronous)</code>和<code>异步(asynchronous)</code></p>
+<ul>
+<li><code>同步任务</code>就是一般情况下的语句 —— 只有执行完毕之后才会执行后面的语句</li>
+<li><code>异步任务</code>则是特殊的语句 —— 先执行特定的语句引发异步操作：调用相关接口，然后等待其他的部分的运转，等时机成熟再执行与运转结果相关的事件</li>
+</ul>
+<p>比如我们比较一下采用同步和异步的方式来执行<code>Ajax</code>：</p>
+<ul>
+<li>同步执行时，我们调用<code>Ajax</code>的接口，根据地址发起请求，直到响应返回，才执行接下来的任务</li>
+<li>异步执行时，我们调用<code>Ajax</code>的接口请求相应地址，然后执行接下来的任务，当响应返回时，特定的函数语句会被加入到<code>访问栈</code></li>
+</ul>
+<p>更加明显的例子当我们使用<code>node.js</code>时，我们会发现很多函数会有同步异步两个版本，比如<code>readFile</code>和<code>readFileSync</code>，其中<code>readFile</code>最后一个参数为<code>回调函数</code>，响应返回时会被执行</p>
+<h2 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h2><p>以下几类任务被当做异步任务：</p>
+<ul>
+<li><code>DOM</code>事件监听</li>
+<li><code>XMLHttpRequest</code></li>
+<li><code>setTimeout</code> &amp; <code>setInterval</code></li>
+</ul>
+<p>注意，<code>DOM</code>事件监听 – <code>addEventListener</code>函数就是异步过程的发起函数，事件监听器函数就是异步过程的回调函数，事件触发时，表示异步任务完成，会将事件监听器函数封装成一个任务放到<code>任务队列</code>中，等待主线程执行，事件冒泡时，多条任务按照事件冒泡的顺序进入<code>任务队列</code></p>
+<p>而<code>onclick</code>,<code>onchange</code>等的<code>handler</code>函数也是异步执行的，同理</p>
+<p>异步任务伴随着<code>回调函数</code> —— 在任务时机成熟时执行的函数，<code>回调函数</code>是异步调用，也就是所谓事件驱动的</p>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p><code>Javascript</code>线程中有一个<code>任务队列</code>：保存着等待执行的异步任务的队列</p>
+<p>我们来观察一下所谓的<code>事件队列的模型</code>：</p>
+<p><img src="http://images.cnitblog.com/blog2015/221923/201503/171756342043920.png" alt="模型"></p>
+<p>我们举个关于<code>setTimeout</code>的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Timeout!'</span>)</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'end!'</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>主线程进栈</li>
+<li><code>setTimeout</code>进栈</li>
+<li>调用<code>setTimeout</code>的<code>API</code>，设置一个定时器，5秒钟之后<code>回调函数</code>加入<code>任务队列</code></li>
+<li><code>setTimeout</code>出栈</li>
+<li><code>console.log(&#39;end!&#39;)</code>进栈</li>
+<li><code>console.log(&#39;end!&#39;)</code>出栈</li>
+<li>主线程出栈</li>
+<li>事件轮询，任务队列中的匿名函数进栈</li>
+<li><code>console.log(&#39;Timeout!&#39;)</code>进栈</li>
+<li><code>console.log(&#39;Timeout!&#39;)</code>出栈</li>
+<li>匿名函数出栈</li>
+</ol>
+<p>每当<code>访问栈</code>空的时候，栈会执行<code>事件轮询</code>操作，从<code>任务队列</code>里面读取任务并执行</p>
+<p>所以，异步过程的<code>回调函数</code>，一定不在当前这一轮事件循环中执行</p>
+<h2 id="单线程和异步"><a href="#单线程和异步" class="headerlink" title="单线程和异步"></a>单线程和异步</h2><p>所以像<code>setTimeout</code>这样的异步任务不一定会准确执行</p>
+<p>我们先看一下回答中的代码段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"first"</span>)</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'second'</span>)</div><div class="line">  &#125;,<span class="number">5</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">  foo()</div><div class="line">&#125;</div><div class="line"><span class="comment">// 执行结果为：first*1000000, second*1000000</span></div></pre></td></tr></table></figure>
+<p>按照我们正常的思维，我们执行1000000次<code>foo</code>函数，每执行一次都会设置一个五毫秒的定时器，然后<code>console.log</code>出<code>&quot;second&quot;</code>，但是我们发现控制台在几秒内一直在重复弹出<code>&quot;first&quot;</code>（这段时间远大于五毫秒），并没有<code>second</code>在这段时间弹出，直到所有<code>first</code>全部弹出完毕</p>
+<p>现在我们能理解这个问题了，只有<code>访问栈</code>里面的任务全部推出之后，<code>任务队列</code>里面的<code>回调函数</code>才会开始执行，所以在<code>first</code>没有完成输出之前，异步调用的<code>second</code>不会执行</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2016/zh-cn/Cleaverjs简介/" class="prev">上一篇</a><a href="/2016/en/Econometrics-OLS/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
