@@ -85,7 +85,6 @@
 <p>看完前面的分析，我想这并不那么难以理解了：<code>setState</code>会进入<code>任务队列</code>，直到<code>访问栈</code>被清空，才会执行<code>事件轮询</code>，从而执行<code>任务队列</code>中的任务</p>
 <p>而<a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="external">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
 <p><a href="http://jsbin.com/dawezapoga/edit?js,console,output" target="_blank" rel="external">这个jsbin</a>上面存在相关的实例：</p>
-<p><a class="jsbin-embed" href="http://jsbin.com/dawezapoga/embed?js,console,output" target="_blank" rel="external">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.39.19"></script></p>
 <p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br><code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
 <p>我把票数最高的答案翻译一下：</p>
 <p>同步调用：</p>
@@ -103,7 +102,7 @@
 <li><code>input.value</code>变成了<code>&#39;HelXlo&#39;</code></li>
 <li>执行事件处理函数<code>onchange</code>，同步将<code>setState</code>的定时器加入<code>任务队列</code></li>
 <li>进行<code>事件轮询</code>，执行了<code>任务队列</code>中的定时器，将<code>setState</code>加入<code>事件队列</code></li>
-<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code><br>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
+<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是’HelXlo’<code>，将</code>DOM<code>操作加入</code>任务队列`</li>
 <li>此时执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
 <li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>&#39;HelXlo&#39;</code>，但<code>DOM</code>上<code>input.value</code>为<code>&#39;Hello&#39;</code></li>
 <li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code></li>
