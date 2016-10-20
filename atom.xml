@@ -99,10 +99,10 @@
     <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     <id>http://lumpychen.github.io/2016/zh-cn/Javascript异步编程/</id>
     <published>2016-10-17T10:17:02.000Z</published>
-    <updated>2016-10-19T17:12:52.000Z</updated>
+    <updated>2016-10-20T13:08:19.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>在<code>GUI</code>编程中，用单一线程进行<code>GUI</code>控制是通常的做法</p>
-<p>如果使用多线程来进行<code>GUI</code>编程，一个线程修改某个<code>UI</code>模块的属性，另一个线程直接删除这个<code>UI</code>模块，那么<code>UI</code>的表现将很难被预测</p>
+<p>如果使用多线程来进行<code>GUI</code>编程，例如，一个线程修改某个<code>UI</code>模块的属性，另一个线程直接删除这个<code>UI</code>模块，那么<code>UI</code>的表现将很难被预测</p>
 <p><code>Javascript</code>运行的环境是<code>单线程</code>的：每一个<code>window</code>或者一个<code>node.js</code>程序只有一个线程</p>
 <p>因此，在<code>JS</code>程序正在执行的某个时间，只有特定的某个语句正在执行（此时其它的语句会被阻塞）</p>
 <p>我个人很喜欢知乎上面<a href="https://www.zhihu.com/question/31982417/answer/54136684" target="_blank" rel="external">@云澹的回答</a></p>
@@ -183,12 +183,41 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"first"</span>)</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'second'</span>)</div><div class="line">  &#125;,<span class="number">5</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">  foo()</div><div class="line">&#125;</div><div class="line"><span class="comment">// 执行结果为：first*1000000, second*1000000</span></div></pre></td></tr></table></figure>
 <p>按照我们正常的思维，我们执行1000000次<code>foo</code>函数，每执行一次都会设置一个五毫秒的定时器，然后<code>console.log</code>出<code>&quot;second&quot;</code>，但是我们发现控制台在几秒内一直在重复弹出<code>&quot;first&quot;</code>（这段时间远大于五毫秒），并没有<code>second</code>在这段时间弹出，直到所有<code>first</code>全部弹出完毕</p>
 <p>现在我们能理解这个问题了，只有<code>访问栈</code>里面的任务全部推出之后，<code>任务队列</code>里面的<code>回调函数</code>才会开始执行，所以在<code>first</code>没有完成输出之前，异步调用的<code>second</code>不会执行</p>
+<p>我们同时可以理解<code>foo()</code>和<code>setTimeout(foo,0)</code>的具体区别了</p>
+<h2 id="在React出现的一点点问题"><a href="#在React出现的一点点问题" class="headerlink" title="在React出现的一点点问题"></a>在React出现的一点点问题</h2><p>在<code>React</code>中，<code>setState</code>函数是异步执行的，如果你在<code>Component</code>的方法里面先调用<code>setState</code>再调用<code>this.state</code>，你会发现后面<code>this.state</code>得到的值与前面<code>setState</code>设置的值不一样，得到的仍然是<code>setState</code>之前的值</p>
+<p>看完前面的分析，我想这并不那么难以理解了：<code>setState</code>会进入<code>任务队列</code>，直到<code>访问栈</code>被清空，才会执行<code>事件轮询</code>，从而执行<code>任务队列</code>中的任务</p>
+<p>而<a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="external">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
+<p><a href="http://jsbin.com/dawezapoga/edit?js,console,output" target="_blank" rel="external">这个jsbin</a>上面存在相关的实例：</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/dawezapoga/embed?js,console,output" target="_blank" rel="external">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.39.19"></script></p>
+<p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br><code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
+<p>我把票数最高的答案翻译一下：</p>
+<p>同步调用：</p>
+<ol>
+<li>你输入<code>X</code>到<code>input</code>标签里面</li>
+<li><code>input.value</code>变成了<code>&#39;HelXlo&#39;</code></li>
+<li>执行事件处理函数<code>onchange</code>，将<code>setState</code>加入<code>任务队列</code></li>
+<li>进行<code>事件轮询</code>，执行了任务队列中的<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li>这引发了虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
+<li><code>Render</code>，<code>DOM</code>操作将<code>input.value</code>改为<code>&#39;HelXlo&#39;</code>，此时<code>state</code>和<code>DOM属性</code>都是<code>&#39;HelXlo&#39;</code></li>
+</ol>
+<p>异步调用：</p>
+<ol>
+<li>你输入<code>X</code>到<code>input</code>标签里面</li>
+<li><code>input.value</code>变成了<code>&#39;HelXlo&#39;</code></li>
+<li>执行事件处理函数<code>onchange</code>，同步将<code>setState</code>的定时器加入<code>任务队列</code></li>
+<li>进行<code>事件轮询</code>，执行了<code>任务队列</code>中的定时器，将<code>setState</code>加入<code>事件队列</code></li>
+<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code><br>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
+<li>此时执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>&#39;HelXlo&#39;</code>，但<code>DOM</code>上<code>input.value</code>为<code>&#39;Hello&#39;</code></li>
+<li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code></li>
+</ol>
+<p><code>React</code>在会在事件处理程序之后同步执行<code>render</code>方法</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;在&lt;code&gt;GUI&lt;/code&gt;编程中，用单一线程进行&lt;code&gt;GUI&lt;/code&gt;控制是通常的做法&lt;/p&gt;
-&lt;p&gt;如果使用多线程来进行&lt;code&gt;GUI&lt;/code&gt;编程，一个线程修改某个&lt;code&gt;UI&lt;/code&gt;模块的属性，另一个线程直接删除这个&lt;code&gt;UI&lt;/code&gt;模块，那么&lt;code&gt;UI&lt;/code&gt;的表现将很难被预测&lt;/p&gt;
+&lt;p&gt;如果使用多线程来进行&lt;code&gt;GUI&lt;/code&gt;编程，例如，一个线程修改某个&lt;code&gt;UI&lt;/code&gt;模块的属性，另一个线程直接删除这个&lt;code&gt;UI&lt;/code&gt;模块，那么&lt;code&gt;UI&lt;/code&gt;的表现将很难被预测&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Javascript&lt;/code&gt;运行的环境是&lt;code&gt;单线程&lt;/code&gt;的：每一个&lt;code&gt;window&lt;/code&gt;或者一个&lt;code&gt;node.js&lt;/code&gt;程序只有一个线程&lt;/p&gt;
 &lt;p&gt;因此，在&lt;code&gt;JS&lt;/code&gt;程序正在执行的某个时间，只有特定的某个语句正在执行（此时其它的语句会被阻塞）&lt;/p&gt;
 &lt;p&gt;我个人很喜欢知乎上面&lt;a href=&quot;https://www.zhihu.com/question/31982417/answer/54136684&quot;&gt;@云澹的回答&lt;/a&gt;&lt;/p&gt;
