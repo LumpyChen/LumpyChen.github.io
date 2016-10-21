@@ -99,7 +99,7 @@
     <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     <id>http://lumpychen.github.io/2016/zh-cn/Javascript异步编程/</id>
     <published>2016-10-17T10:17:02.000Z</published>
-    <updated>2016-10-20T13:15:08.000Z</updated>
+    <updated>2016-10-21T07:12:08.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>在<code>GUI</code>编程中，用单一线程进行<code>GUI</code>控制是通常的做法</p>
 <p>如果使用多线程来进行<code>GUI</code>编程，例如，一个线程修改某个<code>UI</code>模块的属性，另一个线程直接删除这个<code>UI</code>模块，那么<code>UI</code>的表现将很难被预测</p>
@@ -186,31 +186,43 @@
 <p>我们同时可以理解<code>foo()</code>和<code>setTimeout(foo,0)</code>的具体区别了</p>
 <h2 id="在React出现的一点点问题"><a href="#在React出现的一点点问题" class="headerlink" title="在React出现的一点点问题"></a>在React出现的一点点问题</h2><p>在<code>React</code>中，<code>setState</code>函数是异步执行的，如果你在<code>Component</code>的方法里面先调用<code>setState</code>再调用<code>this.state</code>，你会发现后面<code>this.state</code>得到的值与前面<code>setState</code>设置的值不一样，得到的仍然是<code>setState</code>之前的值</p>
 <p>看完前面的分析，我想这并不那么难以理解了：<code>setState</code>会进入<code>任务队列</code>，直到<code>访问栈</code>被清空，才会执行<code>事件轮询</code>，从而执行<code>任务队列</code>中的任务</p>
-<p>而<a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="external">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
+<p>我在<code>React</code>的开发中遇到过如下的问题：</p>
+<p><a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="external">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
 <p><a href="http://jsbin.com/dawezapoga/edit?js,console,output" target="_blank" rel="external">这个jsbin</a>上面存在相关的实例：</p>
 <p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br><code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
-<p>我把票数最高的答案翻译一下：</p>
+<div class="tips"><br>注意：这是一个<a href="https://facebook.github.io/react/docs/forms.html#controlled-components" target="_blank" rel="external">Controlled Components</a>，会忽视用户对<code>input.value</code>在<code>DOM</code>上的改变，但<code>e.target.value</code>的值是用户在<code>input</code>上改变后的值<br></div>
+
+<p>我把 @FakeRainBrigand 的答案 以及自己的理解，进行了结合，得到了下面的过程</p>
 <p>同步调用：</p>
 <ol>
-<li>你输入<code>X</code>到<code>input</code>标签里面</li>
-<li><code>input.value</code>变成了<code>&#39;HelXlo&#39;</code></li>
-<li>执行事件处理函数<code>onchange</code>，将<code>setState</code>加入<code>任务队列</code></li>
-<li>进行<code>事件轮询</code>，执行了任务队列中的<code>setState({value: &#39;HelXlo&#39;})</code></li>
-<li>这引发了虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
-<li><code>Render</code>，<code>DOM</code>操作将<code>input.value</code>改为<code>&#39;HelXlo&#39;</code>，此时<code>state</code>和<code>DOM属性</code>都是<code>&#39;HelXlo&#39;</code></li>
+<li>输入<code>X</code>到<code>input</code>标签里面</li>
+<li><code>input.value</code>不变，触发<code>onchange</code>事件</li>
+<li>执行事件处理函数<code>onchange</code></li>
+<li>执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
+<li><code>onchange</code>任务结束，将<code>render</code>加入<code>任务队列</code></li>
+<li>执行<code>事件轮询</code>，依次执行<code>DOM</code>操作与<code>render</code><ul>
+<li><code>DOM</code>操作将<code>input.value</code>改为当前<code>state</code>的值<code>为&#39;HelXlo&#39;</code></li>
+<li><code>render</code>，此时<code>state</code>里面<code>value</code>和<code>DOM</code>里面<code>input.value</code>都是<code>&#39;HelXlo&#39;</code></li>
+</ul>
+</li>
 </ol>
 <p>异步调用：</p>
 <ol>
-<li>你输入<code>X</code>到<code>input</code>标签里面</li>
-<li><code>input.value</code>变成了<code>&#39;HelXlo&#39;</code></li>
-<li>执行事件处理函数<code>onchange</code>，同步将<code>setState</code>的定时器加入<code>任务队列</code></li>
-<li>进行<code>事件轮询</code>，执行了<code>任务队列</code>中的定时器，将<code>setState</code>加入<code>事件队列</code></li>
-<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是’HelXlo’<code>，将</code>DOM<code>操作加入</code>任务队列`</li>
-<li>此时执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li>输入<code>X</code>到<code>input</code>标签里面</li>
+<li><code>input.value</code>不变，触发<code>onchange</code>事件</li>
+<li>执行事件处理函数<code>onchange</code>，将<code>setState</code>的定时器加入<code>任务队列</code></li>
+<li><code>onchange</code>任务结束，将<code>render</code>加入<code>任务队列</code></li>
+<li>进行<code>事件轮询</code>，执行了<code>任务队列</code>中的定时器，执行<code>setState</code></li>
+<li>执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是’Hello’<code>，将</code>DOM<code>操作加入</code>任务队列`</li>
 <li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>&#39;HelXlo&#39;</code>，但<code>DOM</code>上<code>input.value</code>为<code>&#39;Hello&#39;</code></li>
-<li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code></li>
+<li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code>（此时<code>DOM</code>更新令光标被置于<code>input</code>末尾）</li>
 </ol>
-<p><code>React</code>在会在事件处理程序之后同步执行<code>render</code>方法</p>
+<div class="tips"><br>有一点小小的 <strong>魔法</strong>： <code>React</code>会在<code>onchange</code>这种<code>事件处理函数</code>后异步调用<code>render</code>方法（而<code>DOM</code>操作也是异步执行的，别忘了）<br></div>
+
+<p>通过各种猜想和实验，我得到了上面的结果</p>
+<p>我不确认自己的想法是对的，所以这篇博客先放在这里，等我对源码有了更深的理解在回来证实和修改</p>
 ]]></content>
     
     <summary type="html">
