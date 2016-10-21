@@ -45,7 +45,11 @@
 <li>同步执行时，我们调用<code>Ajax</code>的接口，根据地址发起请求，直到响应返回，才执行接下来的任务</li>
 <li>异步执行时，我们调用<code>Ajax</code>的接口请求相应地址，然后执行接下来的任务，当响应返回时，特定的函数语句会被加入到<code>访问栈</code></li>
 </ul>
-<p>更加明显的例子当我们使用<code>node.js</code>时，我们会发现很多函数会有同步异步两个版本，比如<code>readFile</code>和<code>readFileSync</code>，其中<code>readFile</code>最后一个参数为<code>回调函数</code>，响应返回时会被执行</p>
+<p>更加明显的例子当我们使用<code>node.js</code>时，我们会发现很多函数会有同步异步两个版本，比如<code>readFile</code>和<code>readFileSync</code></p>
+<ul>
+<li>当你使用<code>readFile</code>时，最后一个参数为<code>回调函数</code>，响应返回时会被异步执行</li>
+<li>当你使用<code>readFileSync</code>时，下一个语句一定是在<code>readFileSync</code>的文件操作结束返回结果后进行的</li>
+</ul>
 <h2 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h2><p>以下几类任务被当做异步任务：</p>
 <ul>
 <li><code>DOM</code>事件监听</li>
@@ -56,7 +60,7 @@
 <p>而<code>onclick</code>,<code>onchange</code>等的<code>handler</code>函数也是异步执行的，同理</p>
 <p>异步任务伴随着<code>回调函数</code> —— 在任务时机成熟时执行的函数，<code>回调函数</code>是异步调用，也就是所谓事件驱动的</p>
 <h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p><code>Javascript</code>线程中有一个<code>任务队列</code>：保存着等待执行的异步任务的队列</p>
-<p>我们来观察一下所谓的<code>事件队列的模型</code>：</p>
+<p>观察一下所谓的<code>事件队列的模型</code>：</p>
 <p><img src="http://images.cnitblog.com/blog2015/221923/201503/171756342043920.png" alt="模型"></p>
 <p>我们举个关于<code>setTimeout</code>的例子：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Timeout!'</span>)</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'end!'</span>)</div></pre></td></tr></table></figure>
@@ -87,7 +91,7 @@
 <p><a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="external">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
 <p><a href="http://jsbin.com/dawezapoga/edit?js,console,output" target="_blank" rel="external">这个jsbin</a>上面存在相关的实例：</p>
 <p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br><code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
-<div class="tips"><br>注意：这是一个<a href="https://facebook.github.io/react/docs/forms.html#controlled-components" target="_blank" rel="external">Controlled Components</a>，会忽视用户对<code>input.value</code>在<code>DOM</code>上的改变，但<code>e.target.value</code>的值是用户在<code>input</code>上改变后的值<br></div>
+<div class="tip"><br>注意：这是一个<a href="https://facebook.github.io/react/docs/forms.html#controlled-components" target="_blank" rel="external">Controlled Components</a>，会忽视用户对<code>input.value</code>在<code>DOM</code>上的改变，但<code>e.target.value</code>的值是用户在<code>input</code>上改变后的值<br></div>
 
 <p>我把 @FakeRainBrigand 的答案 以及自己的理解，进行了结合，得到了下面的过程</p>
 <p>同步调用：</p>
@@ -116,7 +120,7 @@
 <li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>&#39;HelXlo&#39;</code>，但<code>DOM</code>上<code>input.value</code>为<code>&#39;Hello&#39;</code></li>
 <li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code>（此时<code>DOM</code>更新令光标被置于<code>input</code>末尾）</li>
 </ol>
-<div class="tips"><br>有一点小小的 <strong>魔法</strong>： <code>React</code>会在<code>onchange</code>这种<code>事件处理函数</code>后异步调用<code>render</code>方法（而<code>DOM</code>操作也是异步执行的，别忘了）<br></div>
+<div class="tip"><br>有一点小小的 <strong>魔法</strong>： <code>React</code>会在<code>onchange</code>这种<code>事件处理函数</code>后异步调用<code>render</code>方法（而<code>DOM</code>操作也是异步执行的，别忘了）<br></div>
 
 <p>通过各种猜想和实验，我得到了上面的结果</p>
 <p>我不确认自己的想法是对的，所以这篇博客先放在这里，等我对源码有了更深的理解在回来证实和修改</p>
