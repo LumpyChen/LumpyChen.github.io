@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 认证授权 · LANTAU</title><meta name="description" content="认证，授权，登录登出，Cookie-Session，以及其他。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://lumpychen.github.io/atom.xml" title="LANTAU"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/irvingchen" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="www.lumpychen.com/cv" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/lumpychen" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="license"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><div class="license-text">Every post in this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You can check the source code at <a href="https://github.com/LumpyChen/LumpyChen.github.io">my github</a>.</div></section><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">认证授权</h1><div class="post-info">2017年8月24日</div><div class="post-tags"><a href="/tags/develop/" class="post-tag"> develop</a></div><div class="post-content"><link rel="stylesheet" href="/owl.css"><p><code>HTTP</code>的一个最大的特点就是它是<strong>无状态协议</strong>——客户端发一次请求给服务器，走一个请求和响应的循环之后，服务器就立刻忘记可客户端，同一个客户端再次访问服务器的时候，服务器就不认识这个客户端了</p>
+<p>客户端和服务器之间是不能保持一种“链接状态”的，所以说<code>HTTP</code>是一个无状态协议</p>
+<p>为了实现用户登录的一种状态，实现认证和授权，我们该怎么做呢？</p>
+<a id="more"></a>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p><code>cookie</code>是客户端浏览器上的专属于某个域名的一个小文件</p>
+<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>客户端：浏览器每次发出请求的时候都会携带着<code>cookie</code>信息在<code>HTTP</code>的头信息里给服务器</p>
+<p>服务器端：<code>cookie</code>一般都是在服务器端设置的，通过<code>HTTP</code>响应的头部：<code>Set-Cookie</code>返回给浏览器，浏览器拿到这些数据就可以保存到自己的<code>cookie</code>文件中</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>每个域名最多只能有20条<code>cookie</code>，长度不能超过4KB</li>
+<li>安全性问题。如果<code>cookie</code>被人拦截了，那人转发就可以取得所有的会话权限</li>
+<li>浪费带宽</li>
+<li>不可以跨域调用</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p><code>session</code>的含义是“会话”（或者也叫对话， session 的本意是“一段时间”）</p>
+<h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p>每次有一个新的浏览器用户登录进来，服务器端都会为这个浏览器开辟一个小的内存区域（创建了一个新的<code>session</code>），那么在这个<code>session</code>之中，服务器就可以为这位特定用户（其实就是为特定的那个浏览器）保存任意信息了</p>
+<h4 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h4><p>但是同一时刻，连接到服务器的浏览器可能成千上万，那么服务器是如何区分不同用户的浏览器的呢？</p>
+<p>“使用<code>cookie</code>”</p>
+<p>具体来说，每个服务器端的 session 被创建的时候，都会有一个<code>sessionId</code></p>
+<p>被创建的时<code>sessionId</code>都会自动的被发送到浏览器的<code>cookie</code>中，这样，每个浏览器就跟自己在服务器上的<code>session</code>有了绑定关系了</p>
+<h2 id="RESTful-API授权"><a href="#RESTful-API授权" class="headerlink" title="RESTful API授权"></a>RESTful API授权</h2><p>访问授权最重要的两点：</p>
+<ul>
+<li>访问资源时必须携带用户身份信息</li>
+<li>访问资源时检查用户权限</li>
+</ul>
+<p>在REST架构中，<code>access_token</code>被定义为用户身份标识，用于对资源访问授权，只允许系统合法用户访问资源</p>
+<h4 id="特征-1"><a href="#特征-1" class="headerlink" title="特征"></a>特征</h4><ul>
+<li><code>access_token</code>必然与数据库中的用户一一对应</li>
+<li>需要满足分布式环境下的全局唯一性</li>
+<li>不应该包含用户信息</li>
+<li>动态变化的</li>
+<li>具备一定特征，用于参数合法性验证</li>
+</ul>
+<h4 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h4><ul>
+<li>用户登录时，动态生成<code>UUID</code>作为该用户的<code>access_token</code>，同时以<code>access_token</code>为<code>key</code>，用户id为<code>value</code>存入<code>redis</code></li>
+<li>用户访问资源时携带<code>access_token</code>，解析验证请求参数。</li>
+<li>如果<code>access_token</code>在<code>redis</code>中不存在，则说明用户还未登录，强制用户登录</li>
+<li>验证<code>access_token</code>通过，继续其他权限验证或者资源访问</li>
+<li>设置<code>access_token</code>超时时间，超过一定时间之后就必须让<code>access_token</code>失效，强制用户重新登录</li>
+</ul>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/zh-cn/Cleaverjs简介/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2017 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
