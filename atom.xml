@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2017-09-11T14:26:42.000Z</updated>
+  <updated>2017-09-11T14:43:53.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://lumpychen.github.io/2017/zh-cn/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
     <id>http://lumpychen.github.io/2017/zh-cn/数据库基础总结/</id>
     <published>2017-09-09T16:40:59.000Z</published>
-    <updated>2017-09-11T14:26:42.000Z</updated>
+    <updated>2017-09-11T14:43:53.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>把之前学过的<code>SQL</code>的知识复习一遍，记一下难点</p>
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>把之前学过的<code>SQL</code>的知识复习一遍，记一下难点。</p>
 <a id="more"></a>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
 <li>数值类型 <code>INT</code>、<code>FLOAT</code></li>
@@ -47,11 +47,11 @@
 </ol>
 <h4 id="不同的值"><a href="#不同的值" class="headerlink" title="不同的值"></a>不同的值</h4><p><code>DISTINCT</code></p>
 <p>返回所有学生的年龄</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> age</div><div class="line"><span class="keyword">FROM</span> student</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> age</div><div class="line"><span class="keyword">FROM</span> student</div></pre></td></tr></table></figure>
 <h4 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h4><p>检索记录行 6、7、8</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LIMIT 5 offset 3</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> age</div><div class="line"><span class="keyword">FROM</span> student</div><div class="line"><span class="keyword">LIMIT</span> <span class="number">5</span> <span class="keyword">offset</span> <span class="number">3</span></div></pre></td></tr></table></figure>
 <p>检索前 5 个记录行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LIMIT 5</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> age</div><div class="line"><span class="keyword">FROM</span> student</div><div class="line"><span class="keyword">LIMIT</span> <span class="number">5</span></div></pre></td></tr></table></figure>
 <h4 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h4><p><code>ORDER BY</code></p>
 <p>按照排列对象二进制的编码从小到大排序</p>
 <blockquote>
@@ -59,7 +59,7 @@
 </blockquote>
 <p><code>DESC</code>倒序</p>
 <p>从贵到便宜排列</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ORDER BY price DESC</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> age</div><div class="line"><span class="keyword">FROM</span> student</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span></div></pre></td></tr></table></figure>
 <h4 id="与或"><a href="#与或" class="headerlink" title="与或"></a>与或</h4><p><code>SQL</code>先处理<code>AND</code>在处理<code>OR</code></p>
 <h4 id="HAVING-和-WHERE"><a href="#HAVING-和-WHERE" class="headerlink" title="HAVING 和 WHERE"></a>HAVING 和 WHERE</h4><p><code>WHERE</code>过滤行、<code>HAVING</code>过滤分组<br><code>WHERE</code>在数据分组前进行过滤，<code>HAVING</code>在数据分组后进行过滤<br><code>WHERE</code>排除的行不包括在分组中，这可能会改变<code>HAVING</code>子句中基于这些值过滤掉的分组</p>
 <h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>可以把一条<code>SELECT</code>语句返回的结果用于另一条<code>SELECT</code>语句的<code>WHERE</code>子句</p>
@@ -132,21 +132,31 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.*,b.* <span class="keyword">FROM</span> a <span class="keyword">INNER</span> <span class="keyword">JOIN</span> b <span class="keyword">on</span> a.id=b.parent_id</div></pre></td></tr></table></figure>
 <p>返回结果：</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">1 </span>  张三                 <span class="number">1</span>     <span class="number">23</span>     <span class="number">1</span>   </div><div class="line"><span class="symbol">2 </span>  李四                 <span class="number">2</span>     <span class="number">34</span>     <span class="number">2</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>1   张三                 1     23     1<br>2   李四                 2     34     2   </p>
+</blockquote>
 <ul>
 <li>左向外连接的结果集包括指定的左表的所有行，如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.*,b.* <span class="keyword">FROM</span> a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">on</span> a.id=b.parent_id</div></pre></td></tr></table></figure>
 <p>返回结果：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>   张三                  <span class="number">1</span>     <span class="number">23</span>     <span class="number">1</span>   </div><div class="line"><span class="number">2</span>   李四                  <span class="number">2</span>     <span class="number">34</span>     <span class="number">2</span>   </div><div class="line"><span class="number">3</span>   王五                  null</div><div class="line">```   </div><div class="line"></div><div class="line">* 左向外连接的结果集包括指定的右表的所有行，如果右表的某行在左表中没有匹配行，则将为左表返回空值</div><div class="line"></div><div class="line">```SQL</div><div class="line">SELECT a.*,b.* FROM a RIGHT JOIN b on a.id=b.parent_id</div></pre></td></tr></table></figure>
+<blockquote>
+<p>1   张三                  1     23     1<br>2   李四                  2     34     2<br>3   王五                  null</p>
+</blockquote>
+<ul>
+<li>右向外连接的结果集包括指定的右表的所有行，如果左表的某行在右表中没有匹配行，则将为左表返回空值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.*,b.* <span class="keyword">FROM</span> a <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> b <span class="keyword">on</span> a.id=b.parent_id</div></pre></td></tr></table></figure>
 <p>返回结果：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>   张三                  <span class="number">1</span>     <span class="number">23</span>     <span class="number">1</span>   </div><div class="line"><span class="number">2</span>   李四                  <span class="number">2</span>     <span class="number">34</span>     <span class="number">2</span>   </div><div class="line">  null                   <span class="number">3</span>     <span class="number">34</span>     <span class="number">4</span></div></pre></td></tr></table></figure>
+<p>1   张三                  1     23     1<br>2   李四                  2     34     2<br>  null                   3     34     4  </p>
 <ul>
 <li>完整外部连接返回左表和右表中的所有行</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.*,b.* <span class="keyword">FROM</span> a <span class="keyword">FULL</span> <span class="keyword">JOIN</span> b <span class="keyword">on</span> a.id=b.parent_id</div></pre></td></tr></table></figure>
 <p>返回结果：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>   张三                 <span class="number">1</span>     <span class="number">23</span>     <span class="number">1</span>   </div><div class="line"><span class="number">2</span>   李四                 <span class="number">2</span>     <span class="number">34</span>     <span class="number">2</span>   </div><div class="line">  null               　　<span class="number">3</span>     <span class="number">34</span>     <span class="number">4</span>   </div><div class="line"><span class="number">3</span>   王五                 null</div></pre></td></tr></table></figure>
+<blockquote>
+<p>1   张三                 1     23     1<br>2   李四                 2     34     2<br>  null               　　3     34     4<br>3   王五                 null</p>
+</blockquote>
 <ul>
 <li>交叉联结，两个表的数据进行组合</li>
 </ul>
@@ -161,7 +171,7 @@
 <h4 id="移植多行"><a href="#移植多行" class="headerlink" title="移植多行"></a>移植多行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Customers(cust_id,</div><div class="line">                      cust_email,</div><div class="line">                      cust_name,</div><div class="line">                      cust_address,</div><div class="line">                      cust_city,</div><div class="line">                      cust_state,</div><div class="line">                      cust_zip,</div><div class="line">                      cust_country)</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span></div><div class="line">cust_id,</div><div class="line">cust_contact,</div><div class="line">cust_email,</div><div class="line">cust_name,</div><div class="line">cust_address,</div><div class="line">cust_city,</div><div class="line">cust_state,</div><div class="line">cust_zip,</div><div class="line">cust_country</div><div class="line">cust_contact,</div><div class="line">cust_email,</div><div class="line">cust_name,</div><div class="line">cust_address,</div><div class="line">cust_city,</div><div class="line">cust_state,</div><div class="line">cust_zip,</div><div class="line">cust_country)</div><div class="line"><span class="keyword">FROM</span> CustNew;</div></pre></td></tr></table></figure>
 <h4 id="复制表"><a href="#复制表" class="headerlink" title="复制表"></a>复制表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">INTO</span> CustCopy</div><div class="line"><span class="keyword">FROM</span> Customers;</div></pre></td></tr></table></figure>
 <h2 id="UPDATE-amp-DELETE"><a href="#UPDATE-amp-DELETE" class="headerlink" title="UPDATE &amp; DELETE"></a>UPDATE &amp; DELETE</h2><h4 id="正常更新行"><a href="#正常更新行" class="headerlink" title="正常更新行"></a>正常更新行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> Customers</div><div class="line"><span class="keyword">SET</span> cust_contact = <span class="string">'Sam Roberts'</span>,</div><div class="line">  cust_email = <span class="string">'sam@toyland.com'</span></div><div class="line"><span class="keyword">WHERE</span> cust_id = <span class="string">'1000000006'</span>;</div></pre></td></tr></table></figure>
-<h4 id="正常删除表"><a href="#正常删除表" class="headerlink" title="正常删除表"></a>正常删除表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Customers</div><div class="line"><span class="keyword">WHERE</span> cust_id = <span class="string">'1000000006'</span>;</div></pre></td></tr></table></figure>
+<h4 id="正常删除表"><a href="#正常删除表" class="headerlink" title="正常删除表"></a>正常删除表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Customers</div><div class="line"><span class="keyword">WHERE</span> cust_id = <span class="string">'1000000006'</span></div></pre></td></tr></table></figure>
 <p>使用外键的好处是防止删除某个关系需要用到的行：<br>例如，要从<code>Products</code>表中删除一个产品，而这个产品用在<code>OrderItems</code>的已有订单中，那么DELETE语句将抛出错误并中止</p>
 <h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><h2 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h2><ol>
 <li>检查数据库中是否存在相应的顾客，如果不存在，添加他;</li>
@@ -204,7 +214,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;把之前学过的&lt;code&gt;SQL&lt;/code&gt;的知识复习一遍，记一下难点&lt;/p&gt;
+      &lt;p&gt;把之前学过的&lt;code&gt;SQL&lt;/code&gt;的知识复习一遍，记一下难点。&lt;/p&gt;
     
     </summary>
     
@@ -1189,9 +1199,9 @@
     </summary>
     
     
-      <category term="course" scheme="http://lumpychen.github.io/tags/course/"/>
-    
       <category term="arrangement" scheme="http://lumpychen.github.io/tags/arrangement/"/>
+    
+      <category term="course" scheme="http://lumpychen.github.io/tags/course/"/>
     
   </entry>
   
