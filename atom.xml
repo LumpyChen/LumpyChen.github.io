@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2017-09-13T13:22:12.000Z</updated>
+  <updated>2017-09-17T12:40:24.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>JS事件类型探究</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/JS%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/JS事件类型探究/</id>
-    <published>2017-09-13T13:16:53.000Z</published>
-    <updated>2017-09-13T13:22:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>UI(User Interface，用户界面)事件，当用户与页面上的元素交互时触发;<br>焦点事件，当元素获得或失去焦点时触发;<br>鼠标事件，当用户通过鼠标在页面上执行操作时触发;<br>滚轮事件，当使用鼠标滚轮(或类似设备)时触发;<br>文本事件，当在文档中输入文本时触发;<br>键盘事件，当用户通过键盘在页面上执行操作时触发;<br>合成事件，当为 IME(Input Method Editor，输入法编辑器)输入字符时触发;<br>变动(mutation)事件，当底层 DOM 结构发生变化时触发。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;&lt;p&gt;UI(User Interface，用户界面)事件，当用户与页面上的元素交互时触发;&lt;br&gt;焦点事件，当元素获得或失去焦点时触发;&lt;br&gt;鼠标事件，当用户通过鼠标在页面上执行操作时触发;&lt;br&gt;滚
-      
-    
-    </summary>
-    
-    
-      <category term="Javascript" scheme="http://lumpychen.github.io/tags/Javascript/"/>
-    
-      <category term="DOM" scheme="http://lumpychen.github.io/tags/DOM/"/>
-    
-      <category term="Basic" scheme="http://lumpychen.github.io/tags/Basic/"/>
-    
-  </entry>
   
   <entry>
     <title>JS版本的数据结构与算法</title>
@@ -87,27 +60,6 @@
       <category term="basic" scheme="http://lumpychen.github.io/tags/basic/"/>
     
       <category term="mysql" scheme="http://lumpychen.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入浅出Node.js阅读记录</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BANode-js%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/深入浅出Node-js阅读记录/</id>
-    <published>2017-09-09T06:10:09.000Z</published>
-    <updated>2017-09-13T13:22:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;
-      
-    
-    </summary>
-    
     
   </entry>
   
