@@ -29,7 +29,7 @@
 <li>主线程出栈</li>
 </ol>
 <p>如果我们在<code>foo</code>函数中发生了错误，我们会得到报错信息：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Uncaught <span class="string">Error:</span> 发生了错误(…)  <span class="string">VM1436:</span><span class="number">1</span></div><div class="line">  foo @ <span class="string">VM14136:</span><span class="number">1</span></div><div class="line">  bar @ <span class="string">VM14205:</span><span class="number">1</span></div><div class="line">  printDouble @ <span class="string">VM14298:</span><span class="number">1</span></div><div class="line">  (anonymous function) @ <span class="string">VM14324:</span><span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Uncaught Error: 发生了错误(…)  VM1436:1</div><div class="line">  foo @ VM14136:1</div><div class="line">  bar @ VM14205:1</div><div class="line">  printDouble @ VM14298:1</div><div class="line">  (anonymous function) @ VM14324:1</div></pre></td></tr></table></figure>
 <p>我们得到从上到下的结果就是所谓的<code>访问栈</code></p>
 <p>当我们得到了<code>RangeError: maximum call stack size exceeded</code>的报错信息时，就代表我们的访问栈的大小不够了，去检查你的程序中有没有进行无限循环调用的语句吧 : )</p>
 <h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>因为<code>Javascript</code>是单线程，一个<code>Javascript</code>程序只有一个<code>访问栈</code>，函数语句按照进入的顺序一个接一个地被执行，前一个结束，才轮到后一个开始</p>
