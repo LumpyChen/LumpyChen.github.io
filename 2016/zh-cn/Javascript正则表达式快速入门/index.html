@@ -3,8 +3,8 @@
 <p>为什么不现在直接把它学会呢？</p>
 <a id="more"></a>
 <hr>
-<p>首先推一个可以帮助你理解正则的网站<a href="https://regexper.com" target="_blank" rel="external">正则表达式可视化</a></p>
-<p>还有一个 Atom 插件 <a href="https://atom.io/packages/regex-railroad-diagram" target="_blank" rel="external">regex-railroad-diagram</a></p>
+<p>首先推一个可以帮助你理解正则的网站<a href="https://regexper.com" target="_blank" rel="noopener">正则表达式可视化</a></p>
+<p>还有一个 Atom 插件 <a href="https://atom.io/packages/regex-railroad-diagram" target="_blank" rel="noopener">regex-railroad-diagram</a></p>
 <p>这样的可视化模型可以帮助你快速回忆与熟悉正则字符的含义。</p>
 <h2 id="1-字符"><a href="#1-字符" class="headerlink" title="1.字符"></a>1.字符</h2><p>正则表达式中我们可以使用两种字符：</p>
 <ul>
@@ -253,12 +253,12 @@
 </table>
 <div class="tip"><br><code>Javascript</code>全局模式下重复匹配会有一些奇怪的事情发生（比如下面这段代码）这是因为<code>lastIndex</code>属性在全局模式下生效，其具体特性见后面的章节<br></div>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/g</span></div><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\w/</span></div><div class="line">reg.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div><div class="line">reg.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//false</span></div><div class="line">reg1.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div><div class="line">reg1.test(<span class="string">'a'</span>)</div><div class="line"><span class="comment">//true</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/g</span></span><br><span class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\w/</span></span><br><span class="line">reg.test(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line">reg.test(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line">reg1.test(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line">reg1.test(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>而且，前文说过，我们之前的实例全部在默认使用全局模式，如果不在全局模式之下，正则表达式只会匹配字符串从头开始的第一个字符段</p>
 <h2 id="2-JavaScript-中的-RegExp-对象"><a href="#2-JavaScript-中的-RegExp-对象" class="headerlink" title="2.JavaScript 中的 RegExp 对象"></a>2.JavaScript 中的 RegExp 对象</h2><p>在<code>JavaScript</code>中，由<code>/</code>开始，由<code>/</code>结束（或者跟随有效正则修饰符）的字段会被<code>JavaScript</code>编译器正确解析为一个<code>RegExp</code>对象。</p>
 <p>同时<code>//</code> —— 空的正则表达式会被解析为注释</p>
 <p><code>RegExp</code>是<code>JavaScript</code>中的内置对象，其构造函数创建了一个正则表达式对象，用来匹配文本</p>
-<p><code>RegExp</code>的详细特性在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">mdn</a>上有详细讲解与实例</p>
+<p><code>RegExp</code>的详细特性在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="noopener">mdn</a>上有详细讲解与实例</p>
 <p><code>RegExp</code>有两种构造方式：</p>
 <ul>
 <li>字面量方式</li>
@@ -267,8 +267,8 @@
 <h4 id="字面量方式"><a href="#字面量方式" class="headerlink" title="字面量方式"></a>字面量方式</h4><blockquote>
 <p><code>RegExp</code>对象的实例由<code>/</code>+正则表达式正文+<code>/</code>+正则表达式修饰符组成</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span></div></pre></td></tr></table></figure>
-<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>, <span class="string">'g'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span></span><br></pre></td></tr></table></figure>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>, <span class="string">'g'</span>)</span><br></pre></td></tr></table></figure>
 <p><code>RegExp</code>构造函数接受两个参数：</p>
 <ul>
 <li>包含正则表达式的一个字符串（注意在字符串中转义符需要转义输入）</li>
@@ -287,7 +287,7 @@
 <p>以上属性中，除了<code>lastIndex</code>和<code>source</code>以外，其它属性都描述着<code>RegExp</code>对象的在构造时附件的修饰模式 – 由构造<code>RegExp</code>时附加的修饰符决定（它们都是布尔值）</p>
 <p><code>source</code>属性是<code>RegExp</code>对象正则表达式正文的字符串 —— 正则表达式<code>/</code>内部的内容</p>
 <p><code>lastIndex</code>是个复杂的属性，它相当<code>RegExp</code>上的一个标记，它可写，指定着下一次匹配的起始索引位置，同时也是匹配的上一次结果尾部后一个字符的索引位置（只有在全局模式下该属性才有效）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/</span></div><div class="line"><span class="keyword">while</span>(reg.test(<span class="string">'abc'</span>))&#123;</div><div class="line">  <span class="built_in">console</span>.log(reg.lastIndex)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/</span></span><br><span class="line"><span class="keyword">while</span>(reg.test(<span class="string">'abc'</span>))&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(reg.lastIndex)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>得到结果为<code>1</code>,<code>2</code>,<code>3</code></p>
 <p>全局正则表达式的匹配可以配合<code>lastIndex</code>进行匹配异步的驱动</p>
 <p>有很多与正则表达式有关的方法可以让我们更轻松地进行字符串操作：</p>
@@ -311,7 +311,7 @@
 <p>全局模式<code>RegExp</code>对象调用<code>exec</code>时，可以多次执行<code>exec</code>方法来查找同一个字符串中的其它的成功匹配，每次<code>exec</code>都会更新<code>lastIndex</code>属性</p>
 <p><code>test</code>方法接受一个字符串作为参数，如果正则表达式可以匹配到字符串里的字段，返回<code>true</code>，否则返回<code>false</code></p>
 <p><code>exec</code>方法和<code>test</code>方法在全局的<code>RegExp</code>对象执行时都会更新<code>lastIndex</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w\d/g</span>,</div><div class="line">  str = <span class="string">'a1b2c3d4'</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//0</span></div><div class="line">reg.test(str) <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//2</span></div><div class="line">reg.exec(str) <span class="comment">// [ 'b2', index: 2, input: 'a1b2c3d4'  ]</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">// 4</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w\d/g</span>,</span><br><span class="line">  str = <span class="string">'a1b2c3d4'</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//0</span></span><br><span class="line">reg.test(str) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">//2</span></span><br><span class="line">reg.exec(str) <span class="comment">// [ 'b2', index: 2, input: 'a1b2c3d4'  ]</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.lastIndex) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
 <p>这个表格是测试后的<code>lastIndex</code>变化规律：</p>
 <table>
 <thead>
@@ -357,9 +357,9 @@
 <li>在全局模式下，返回包含所有匹配字段的数组</li>
 <li>如果不能匹配到，则返回<code>null</code></li>
 </ul>
-<p><code>replace</code>方法接受两个参数：第一个参数是<code>RegExp</code>或字符串，第二个参数为字符串或函数，字符串调用<code>replace</code>之后会将字符串中第一个参数正则匹配到的/出现的替换为某个字符串，详细请看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank" rel="external">mdn</a></p>
+<p><code>replace</code>方法接受两个参数：第一个参数是<code>RegExp</code>或字符串，第二个参数为字符串或函数，字符串调用<code>replace</code>之后会将字符串中第一个参数正则匹配到的/出现的替换为某个字符串，详细请看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank" rel="noopener">mdn</a></p>
 <p>第二个参数作为字符串的话可以使用<code>$</code>号来进行反向引用：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'$2$3$1'</span>)</div><div class="line"><span class="comment">// 10102016</span></div><div class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'\$2\$3\$1'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'$2$3$1'</span>)</span><br><span class="line"><span class="comment">// 10102016</span></span><br><span class="line"><span class="string">'2016-10-10'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">'\$2\$3\$1'</span>)</span><br></pre></td></tr></table></figure>
 <p>除了分组匹配，还有：</p>
 <table>
 <thead>
@@ -396,13 +396,13 @@
 </ul>
 <div class="tip"><br>  <code>replace</code>的第一个参数，我们如果提供字符串作为参数，就会被自动转化为<code>RegExp</code>对象 —— 不附带任何修饰模式，实例如下： </div>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//b1a2a3a4</span></div><div class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="regexp">/a/g</span>,<span class="string">'b'</span>) <span class="comment">//b1b2b3b4</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//b1a2a3a4</span></span><br><span class="line"><span class="string">'a1a2a3a4'</span>.replace(<span class="regexp">/a/g</span>,<span class="string">'b'</span>) <span class="comment">//b1b2b3b4</span></span><br></pre></td></tr></table></figure>
 <p><code>search</code>方法与<code>RegExp</code>的<code>test</code>相似，<br>接受一个<code>RegExp</code>对象为参数，但是返回值为第一次匹配到字段的索引数值（如果没有匹配到则返回<code>-1</code>）</p>
 <p><code>split</code>方法接受两个参数，第一个参数为分隔符（可以是字符串和<code>RegExp</code>），第二个参数为片段数量的限定值（可选），返回一个由一个个分隔符之间的字段组成的数组</p>
 <p>如果不存在有效参数，则返回整个字符串在第一位的数组</p>
 <p>如果分隔符是一个空字符串，则会把原字符串中每个字符的装在数组里返回</p>
 <p>如果分隔符是包含分组匹配的正则表达式，则每次匹配到结果时，分组匹配到的结果也会插入到返回的数组中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\*/</span>,</div><div class="line">  reg2 = <span class="regexp">/(\*)/</span>,</div><div class="line">  str = <span class="string">'c*x*y'</span></div><div class="line">str.split(reg1) <span class="comment">// ["c", "x", "y"]</span></div><div class="line">str.split(reg2) <span class="comment">// ["c", "*", "x", "*", "y"]</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\*/</span>,</span><br><span class="line">  reg2 = <span class="regexp">/(\*)/</span>,</span><br><span class="line">  str = <span class="string">'c*x*y'</span></span><br><span class="line">str.split(reg1) <span class="comment">// ["c", "x", "y"]</span></span><br><span class="line">str.split(reg2) <span class="comment">// ["c", "*", "x", "*", "y"]</span></span><br></pre></td></tr></table></figure>
 <h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p>写了这么多，笔者相信你们头都晕了 : )</p>
 <p>记住正则表达式的关键：</p>
 <p>在<code>Javascript</code>中</p>

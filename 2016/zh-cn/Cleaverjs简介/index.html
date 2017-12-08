@@ -6,8 +6,8 @@
 <blockquote>
 <p>如果你已经有了一个 Markdown 的文档，30秒就可以制作成幻灯片。</p>
 </blockquote>
-<p><a href="https://github.com/jdan/cleaver" target="_blank" rel="external">Github戳这里</a></p>
-<p>– </p>
+<p><a href="https://github.com/jdan/cleaver" target="_blank" rel="noopener">Github戳这里</a></p>
+<p>–</p>
 <h2 id="厌倦了PPT？"><a href="#厌倦了PPT？" class="headerlink" title="厌倦了PPT？"></a>厌倦了PPT？</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://b-i.forbesimg.com/carminegallo/files/2013/11/6845.strip_.zoom_-e1385136828745.gif" alt=""></h2><h2 id="它的优势之处在于："><a href="#它的优势之处在于：" class="headerlink" title="它的优势之处在于："></a>它的优势之处在于：</h2><ol>
 <li>简易而快速</li>
 <li>如果你会用 Markdown ，你不需要额外学习</li>
@@ -22,38 +22,74 @@
 </ul>
 <p>–</p>
 <h2 id="安装Cleaver"><a href="#安装Cleaver" class="headerlink" title="安装Cleaver"></a>安装Cleaver</h2><ol>
-<li>下载并安装 <a href="https://nodejs.org/download/" target="_blank" rel="external">node.js</a> （如果需要）</li>
+<li>下载并安装 <a href="https://nodejs.org/download/" target="_blank" rel="noopener">node.js</a> （如果需要）</li>
 <li>终端里执行以下代码：</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install cleaver -g</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install cleaver -g</span><br></pre></td></tr></table></figure>
 <p>等待其安装成功即可</p>
 <p>–</p>
 <h2 id="使用Cleaver"><a href="#使用Cleaver" class="headerlink" title="使用Cleaver"></a>使用Cleaver</h2><p> Cleaver 和普通的 Markdown 存在一点区别：</p>
 <ol>
-<li>需要在 Markdown 文件开头添加少量配置，<a href="https://github.com/jdan/cleaver/blob/master/docs/options.md" target="_blank" rel="external">配置的API</a></li>
+<li>需要在 Markdown 文件开头添加少量配置，<a href="https://github.com/jdan/cleaver/blob/master/docs/options.md" target="_blank" rel="noopener">配置的API</a></li>
 <li><p>需要在正文中使用<code>--</code>来进行幻灯片的分页</p>
-<p>比如这个幻灯片对应的 markdown 文件<a href="https://raw.githubusercontent.com/LumpyChen/cleaver_intro/master/cleaver_demo.md" target="_blank" rel="external">源码在此</a></p>
+<p>比如这个幻灯片对应的 markdown 文件<a href="https://raw.githubusercontent.com/LumpyChen/cleaver_intro/master/cleaver_demo.md" target="_blank" rel="noopener">源码在此</a></p>
 <p>–</p>
-<h2 id="常用配置详解"><a href="#常用配置详解" class="headerlink" title="常用配置详解"></a>常用配置详解</h2><p>|配置名|默认值|含义|<br>|:—:|:—:|:—:|<br>|title| - | 页面的总标题 |<br>|author| - | 作者信息（需详细配置）|<br>|theme| jdan/cleaver-retro | 采用主题样式 |<br>|output| basic.html | 生成的文件 |<br>|controls| true | 是否显示控制按钮 |</p>
-<p>–</p>
-<h2 id="生成PPT效果的HTML"><a href="#生成PPT效果的HTML" class="headerlink" title="生成PPT效果的HTML"></a>生成PPT效果的HTML</h2><p>安装完 cleaver 之后，我们可以来使用它<br>在终端里面执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cleaver [你的markdown文件]</div></pre></td></tr></table></figure>
-<p>你就会得到你生成的 html 文件了</p>
-<p>–</p>
-<h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>Cleaver 有<a href="https://github.com/jdan/cleaver/wiki/Theme-Inde://github.com/jdan/cleaver/wiki/Theme-Index" target="_blank" rel="external">很多主题</a>可供选择：</p>
+<h2 id="常用配置详解"><a href="#常用配置详解" class="headerlink" title="常用配置详解"></a>常用配置详解</h2></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">配置名</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">页面的总标题</td>
+</tr>
+<tr>
+<td style="text-align:center">author</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">作者信息（需详细配置）</td>
+</tr>
+<tr>
+<td style="text-align:center">theme</td>
+<td style="text-align:center">jdan/cleaver-retro</td>
+<td style="text-align:center">采用主题样式</td>
+</tr>
+<tr>
+<td style="text-align:center">output</td>
+<td style="text-align:center">basic.html</td>
+<td style="text-align:center">生成的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">controls</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">是否显示控制按钮</td>
+</tr>
+</tbody>
+</table>
+<p> –</p>
+<h2 id="生成PPT效果的HTML"><a href="#生成PPT效果的HTML" class="headerlink" title="生成PPT效果的HTML"></a>生成PPT效果的HTML</h2><p> 安装完 cleaver 之后，我们可以来使用它<br> 在终端里面执行：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cleaver [你的markdown文件]</span><br></pre></td></tr></table></figure>
+<p> 你就会得到你生成的 html 文件了</p>
+<p> –</p>
+<h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>  Cleaver 有<a href="https://github.com/jdan/cleaver/wiki/Theme-Inde://github.com/jdan/cleaver/wiki/Theme-Index" target="_blank" rel="noopener">很多主题</a>可供选择：</p>
 <ul>
 <li>jdan/cleaver-retro</li>
 <li>iamstarkov/cleaver-ribbon</li>
 <li>sudodoki/reveal-cleaver-theme</li>
 <li>sjaakvandenberg/cleaver-dark</li>
 <li>sjaakvandenberg/cleaver-light</li>
-<li>select/cleaver-select-theme</li>
-</ul>
+<li><p>select/cleaver-select-theme</p>
 <p>个人推荐最后一个</p>
 <p>–</p>
 <h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>幻灯片最后一页是自动生成的，会展示作者介绍</p>
 <p>Cleaver 仍然还有一点排版上的问题，当然你可以贡献源码</p>
-<p>总而言之，如果你需要进行不是一项特别复杂的汇报展示时，我们可以使用 Cleaver 代替 PowerPoint </p>
+<p>总而言之，如果你需要进行不是一项特别复杂的汇报展示时，我们可以使用 Cleaver 代替 PowerPoint</p>
 </li>
-</ol>
+</ul>
 </div></article></div></section><footer><div class="paginator"><a href="/2017/zh-cn/认证授权/" class="prev">上一篇</a><a href="/2016/zh-cn/Javascript异步编程/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2017 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
