@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Econometrics - Regression · LANTAU</title><meta name="description" content="my econometric notes, regression part."><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://lumpychen.github.io/atom.xml" title="LANTAU"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link active">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/irvingchen" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="https://lumpychen.github.io/cv_web/" target="_blank" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/lumpychen" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="license"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><div class="license-text">Every post in this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You can check the source code at <a href="https://github.com/LumpyChen/LumpyChen.github.io">my github</a>.</div></section><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Econometrics - Regression</h1><div class="post-info">Sep 18, 2016</div><div class="post-tags"><a href="/tags/course/" class="post-tag"> course</a></div><div class="post-content"><link rel="stylesheet" href="/owl.css"><blockquote><p>“Econometrics, literally “econometric measurement”, is the quantitative measurement and analysis of actual econometric and business phenomena.”</p>
+<footer><strong>-- A.H.Studenmund</strong></footer></blockquote>
+<p>This article contains notes of this lesson.</p>
+<a id="more"></a>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Econometrics is a combination of <code>mathematics</code>, <code>economics</code> and <code>statistics</code>.<br>Econometrics 3 uses:</p>
+<ul>
+<li>describing economic reality.</li>
+<li>testing hypotheses about economic theory.</li>
+<li>forecasting future economic activity.</li>
+</ul>
+<h2 id="Single-Regression"><a href="#Single-Regression" class="headerlink" title="Single Regression"></a>Single Regression</h2><blockquote><p>“To predict the <em>direction</em> of change, you need a knowledge of economic theory and the general characteristics of the product in question. To predict the <em>amount</em> of the change, though, you need a sample of data, and you need a way to estimate the relationship.”</p>
+<footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote>
+<p>The most frequently used method to estimate such a relationship in econometrics is <em>regression analysis</em>.</p>
+<p>Regression Analysis:</p>
+<ul>
+<li>Dependent Variables</li>
+<li>Independent Variables</li>
+<li>Causality</li>
+</ul>
+<p>Aim at <code>Gross mean value</code> of dependent value, and <code>dependent relationship</code> of variable. (not <code>cause-and-effect relationship</code>)</p>
+<p>$$Q_i=\beta_1 X_i + \beta_0 + \varepsilon_i, i=1,2,3…,N$$</p>
+<ul>
+<li>\(Q_i\) – The i th observation of the dependent variable.</li>
+<li>\(X\) – The i th observation of the independent Variable.</li>
+<li>\(\beta_0\) – Intercept(Constant)</li>
+<li>\(\beta_1\) – Coefficient</li>
+<li>\(\varepsilon_i\) – The i th observation of the stochastic error term (deviation).</li>
+<li>\(N\) – The Number of observations.</li>
+</ul>
+<p>deterministic component &amp; Stochastic component:</p>
+<p>$$ Y = E(Y|X) + \varepsilon = \beta_1 X + \beta_0 $$</p>
+<p>We prefer linear equations to nonlinear, so if the relationship we analysis is not linear, we can doing the redefination like: \(z=x^2\).</p>
+<p>After understanding the theoretical regression equation, it can be quantified to a estimated regression equation.</p>
+<h2 id="Muti-Regression"><a href="#Muti-Regression" class="headerlink" title="Muti Regression"></a>Muti Regression</h2><p>$$ Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \varepsilon_i $$</p>
+<p>For instance, here goes a multivariate linear regression model expression.</p>
+<p>\(\beta_1\) in the equation means how much Y increases as every unit \(X_1\) increases and \(X_2\) stays still.</p>
+<p>\(i\) represents the observation series, from 1 to \(N\)</p>
+<h2 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h2><p>$$ \hat{Y_i} = 103.40 + 6.38 X_i $$</p>
+<p>The variable with the hat symbol means the regression value.</p>
+<p>Differences of theoretical regression equation &amp; estimated regression equation:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">\</th>
+<th style="text-align:center">Theoretical equation</th>
+<th style="text-align:center">Estimated equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Expression</td>
+<td style="text-align:center">\(Y_i=\beta_0+\beta_1 X_i + \varepsilon_i\)</td>
+<td style="text-align:center">\(\hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_i\)</td>
+</tr>
+<tr>
+<td style="text-align:center">Calculated expression</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">\(\hat{Y_i}=103.40+6.38X_i\)</td>
+</tr>
+<tr>
+<td style="text-align:center">Base data</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">A sample of the Xs &amp; Ys</td>
+</tr>
+<tr>
+<td style="text-align:center">Coefficient</td>
+<td style="text-align:center">\(\beta\)</td>
+<td style="text-align:center">calculated estimate values: 103.40</td>
+</tr>
+</tbody>
+</table>
+<p>The difference between error term &amp; residual:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">\</th>
+<th style="text-align:center">Error term</th>
+<th style="text-align:center">Residual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Error term/Residual</td>
+<td style="text-align:center">\(\varepsilon_i=Y_i-E(Y_i &#124; X_i)\)</td>
+<td style="text-align:center">\(e_i=Y_i - \hat{Y_i}\)</td>
+</tr>
+<tr>
+<td style="text-align:center">what it means</td>
+<td style="text-align:center">The difference between the observed \(Y\) &amp; estimated \(\hat{Y}\)</td>
+<td style="text-align:center">The difference between the observed \(Y\) &amp; the regression expected value of \(Y\)</td>
+</tr>
+<tr>
+<td style="text-align:center">Nature</td>
+<td style="text-align:center">A theoretical concept which can’t be calculated.</td>
+<td style="text-align:center">The estimate of \(\varepsilon\), each observation every time a regression runs</td>
+</tr>
+<tr>
+<td style="text-align:center">Line</td>
+<td style="text-align:center">True line</td>
+<td style="text-align:center">Estimated line</td>
+</tr>
+</tbody>
+</table>
+</div></article></div></section><footer><div class="paginator"><a href="/zh-cn/Javascript正则表达式快速入门/" class="prev">PREV</a><a href="/en/hello-world/" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2017 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2017-12-09T14:50:34.000Z</updated>
+  <updated>2017-12-09T14:55:40.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -18,17 +18,25 @@
   
   <entry>
     <title>org-test</title>
-    <link href="http://lumpychen.github.io/2017/en/org-test/"/>
-    <id>http://lumpychen.github.io/2017/en/org-test/</id>
+    <link href="http://lumpychen.github.io//org-test/"/>
+    <id>http://lumpychen.github.io//org-test/</id>
     <published>2017-12-09T00:00:00.000Z</published>
-    <updated>2017-12-09T14:50:34.000Z</updated>
+    <updated>2017-12-09T14:55:40.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>=Emacs=的=org-mode=是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener">/weychen/的文章之后</a>，我按照文章的流程搭建了我的工作流，同时写了这篇文章。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 22:50.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents"><ul><li><a href="#sec-1">1. Org-mode实例</a></li></ul></div></div><p><code>Emacs</code> 的 <code>org-mode</code> 是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener"> <i>weychen</i> 的文章之后</a> 我按照文章的流程搭建了我的工作流，同时写了这篇文章。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 22:55.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;
-=Emacs=的=org-mode=是非常强大的工具，阅读了&lt;a href=&quot;http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;/weychen/的文章之后&lt;/a&gt;，我按照文章的流程搭建了我的工作流，同时写了这篇文章。
+      &lt;div id=&quot;table-of-contents&quot;&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id=&quot;text-table-of-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#sec-1&quot;&gt;1. Org-mode实例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+&lt;code&gt;Emacs&lt;/code&gt; 的 &lt;code&gt;org-mode&lt;/code&gt; 是非常强大的工具，阅读了&lt;a href=&quot;http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt; &lt;i&gt;weychen&lt;/i&gt; 的文章之后&lt;/a&gt; 我按照文章的流程搭建了我的工作流，同时写了这篇文章。
 &lt;/p&gt;
     
     </summary>
@@ -37,30 +45,9 @@
   </entry>
   
   <entry>
-    <title>draft</title>
-    <link href="http://lumpychen.github.io/2017/en/draft/"/>
-    <id>http://lumpychen.github.io/2017/en/draft/</id>
-    <published>2017-12-08T18:36:12.000Z</published>
-    <updated>2017-12-08T18:36:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>我的emacs按键汇总</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/我的emacs按键汇总/</id>
+    <link href="http://lumpychen.github.io//zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/"/>
+    <id>http://lumpychen.github.io//zh-cn/我的emacs按键汇总/</id>
     <published>2017-12-08T18:06:59.000Z</published>
     <updated>2017-12-08T18:44:59.000Z</updated>
     
@@ -82,8 +69,8 @@
   
   <entry>
     <title>JS版本的数据结构与算法</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/JS%E7%89%88%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/JS版本的数据结构与算法/</id>
+    <link href="http://lumpychen.github.io//zh-cn/JS%E7%89%88%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <id>http://lumpychen.github.io//zh-cn/JS版本的数据结构与算法/</id>
     <published>2017-09-11T14:51:23.000Z</published>
     <updated>2017-09-17T12:40:24.000Z</updated>
     
@@ -107,8 +94,8 @@
   
   <entry>
     <title>数据库基础总结</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/数据库基础总结/</id>
+    <link href="http://lumpychen.github.io//zh-cn/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
+    <id>http://lumpychen.github.io//zh-cn/数据库基础总结/</id>
     <published>2017-09-09T16:40:59.000Z</published>
     <updated>2017-09-11T14:43:53.000Z</updated>
     
@@ -129,8 +116,8 @@
   
   <entry>
     <title>认证授权</title>
-    <link href="http://lumpychen.github.io/2017/zh-cn/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/"/>
-    <id>http://lumpychen.github.io/2017/zh-cn/认证授权/</id>
+    <link href="http://lumpychen.github.io//zh-cn/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/"/>
+    <id>http://lumpychen.github.io//zh-cn/认证授权/</id>
     <published>2017-08-23T18:31:42.000Z</published>
     <updated>2017-10-07T06:29:58.000Z</updated>
     
@@ -151,8 +138,8 @@
   
   <entry>
     <title>Cleaverjs简介</title>
-    <link href="http://lumpychen.github.io/2016/zh-cn/Cleaverjs%E7%AE%80%E4%BB%8B/"/>
-    <id>http://lumpychen.github.io/2016/zh-cn/Cleaverjs简介/</id>
+    <link href="http://lumpychen.github.io//zh-cn/Cleaverjs%E7%AE%80%E4%BB%8B/"/>
+    <id>http://lumpychen.github.io//zh-cn/Cleaverjs简介/</id>
     <published>2016-10-18T13:29:19.000Z</published>
     <updated>2017-10-07T05:08:37.000Z</updated>
     
@@ -172,8 +159,8 @@
   
   <entry>
     <title>Javascript异步探讨</title>
-    <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
-    <id>http://lumpychen.github.io/2016/zh-cn/Javascript异步编程/</id>
+    <link href="http://lumpychen.github.io//zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    <id>http://lumpychen.github.io//zh-cn/Javascript异步编程/</id>
     <published>2016-10-17T10:17:02.000Z</published>
     <updated>2017-10-07T05:10:38.000Z</updated>
     
@@ -198,8 +185,8 @@
   
   <entry>
     <title>Econometrics - OLS</title>
-    <link href="http://lumpychen.github.io/2016/en/Econometrics-OLS/"/>
-    <id>http://lumpychen.github.io/2016/en/Econometrics-OLS/</id>
+    <link href="http://lumpychen.github.io//en/Econometrics-OLS/"/>
+    <id>http://lumpychen.github.io//en/Econometrics-OLS/</id>
     <published>2016-10-06T05:53:33.000Z</published>
     <updated>2016-10-15T08:27:10.000Z</updated>
     
@@ -224,8 +211,8 @@
   
   <entry>
     <title>JS正则表达式快速入门</title>
-    <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
-    <id>http://lumpychen.github.io/2016/zh-cn/Javascript正则表达式快速入门/</id>
+    <link href="http://lumpychen.github.io//zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://lumpychen.github.io//zh-cn/Javascript正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
     <updated>2017-09-11T14:52:35.000Z</updated>
     
@@ -248,8 +235,8 @@
   
   <entry>
     <title>Econometrics - Regression</title>
-    <link href="http://lumpychen.github.io/2016/en/Econometrics-regression/"/>
-    <id>http://lumpychen.github.io/2016/en/Econometrics-regression/</id>
+    <link href="http://lumpychen.github.io//en/Econometrics-regression/"/>
+    <id>http://lumpychen.github.io//en/Econometrics-regression/</id>
     <published>2016-09-18T07:05:31.000Z</published>
     <updated>2016-10-15T08:27:06.000Z</updated>
     
@@ -270,8 +257,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://lumpychen.github.io/2016/en/hello-world/"/>
-    <id>http://lumpychen.github.io/2016/en/hello-world/</id>
+    <link href="http://lumpychen.github.io//en/hello-world/"/>
+    <id>http://lumpychen.github.io//en/hello-world/</id>
     <published>2016-09-18T00:55:32.000Z</published>
     <updated>2016-09-18T00:55:32.000Z</updated>
     
@@ -295,8 +282,8 @@
   
   <entry>
     <title>Apollo样式测试</title>
-    <link href="http://lumpychen.github.io/2016/zh-cn/Apollo%E6%A0%B7%E5%BC%8F%E6%B5%8B%E8%AF%95/"/>
-    <id>http://lumpychen.github.io/2016/zh-cn/Apollo样式测试/</id>
+    <link href="http://lumpychen.github.io//zh-cn/Apollo%E6%A0%B7%E5%BC%8F%E6%B5%8B%E8%AF%95/"/>
+    <id>http://lumpychen.github.io//zh-cn/Apollo样式测试/</id>
     <published>2016-09-17T07:03:29.000Z</published>
     <updated>2016-09-18T01:40:43.000Z</updated>
     
