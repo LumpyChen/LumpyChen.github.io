@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2017-12-09T14:55:40.000Z</updated>
+  <updated>2017-12-09T15:20:34.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -17,26 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>org-test</title>
-    <link href="http://lumpychen.github.io//org-test/"/>
-    <id>http://lumpychen.github.io//org-test/</id>
+    <title>new</title>
+    <link href="http://lumpychen.github.io/2017/en/new/"/>
+    <id>http://lumpychen.github.io/2017/en/new/</id>
     <published>2017-12-09T00:00:00.000Z</published>
-    <updated>2017-12-09T14:55:40.000Z</updated>
+    <updated>2017-12-09T15:20:34.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents"><ul><li><a href="#sec-1">1. Org-mode实例</a></li></ul></div></div><p><code>Emacs</code> 的 <code>org-mode</code> 是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener"> <i>weychen</i> 的文章之后</a> 我按照文章的流程搭建了我的工作流，同时写了这篇文章。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 22:55.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>test this </p>Last Updated 2017-12-09 六 23:20.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
     
     <summary type="html">
     
-      &lt;div id=&quot;table-of-contents&quot;&gt;
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;div id=&quot;text-table-of-contents&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#sec-1&quot;&gt;1. Org-mode实例&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;
+
 &lt;p&gt;
-&lt;code&gt;Emacs&lt;/code&gt; 的 &lt;code&gt;org-mode&lt;/code&gt; 是非常强大的工具，阅读了&lt;a href=&quot;http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt; &lt;i&gt;weychen&lt;/i&gt; 的文章之后&lt;/a&gt; 我按照文章的流程搭建了我的工作流，同时写了这篇文章。
+test this 
+&lt;/p&gt;
+
+Last Updated 2017-12-09 六 23:20.&lt;br&gt;Render by &lt;a href=&quot;https://github.com/Code
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>org-test</title>
+    <link href="http://lumpychen.github.io/2017/en/org-test/"/>
+    <id>http://lumpychen.github.io/2017/en/org-test/</id>
+    <published>2017-12-09T00:00:00.000Z</published>
+    <updated>2017-12-09T15:06:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p><code>Emacs</code> 的 <code>org-mode</code> 是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener"> <i>weychen</i> 的文章之后</a> 我按照文章的流程搭建了我的工作流，同时写下了这篇文章去简单介绍下 <code>org-mode</code> 的语法。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 23:06.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;
+&lt;code&gt;Emacs&lt;/code&gt; 的 &lt;code&gt;org-mode&lt;/code&gt; 是非常强大的工具，阅读了&lt;a href=&quot;http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt; &lt;i&gt;weychen&lt;/i&gt; 的文章之后&lt;/a&gt; 我按照文章的流程搭建了我的工作流，同时写下了这篇文章去简单介绍下 &lt;code&gt;org-mode&lt;/code&gt; 的语法。
 &lt;/p&gt;
     
     </summary>
@@ -46,8 +65,8 @@
   
   <entry>
     <title>我的emacs按键汇总</title>
-    <link href="http://lumpychen.github.io//zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/"/>
-    <id>http://lumpychen.github.io//zh-cn/我的emacs按键汇总/</id>
+    <link href="http://lumpychen.github.io/2017/zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/"/>
+    <id>http://lumpychen.github.io/2017/zh-cn/我的emacs按键汇总/</id>
     <published>2017-12-08T18:06:59.000Z</published>
     <updated>2017-12-08T18:44:59.000Z</updated>
     
@@ -69,8 +88,8 @@
   
   <entry>
     <title>JS版本的数据结构与算法</title>
-    <link href="http://lumpychen.github.io//zh-cn/JS%E7%89%88%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    <id>http://lumpychen.github.io//zh-cn/JS版本的数据结构与算法/</id>
+    <link href="http://lumpychen.github.io/2017/zh-cn/JS%E7%89%88%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <id>http://lumpychen.github.io/2017/zh-cn/JS版本的数据结构与算法/</id>
     <published>2017-09-11T14:51:23.000Z</published>
     <updated>2017-09-17T12:40:24.000Z</updated>
     
@@ -94,8 +113,8 @@
   
   <entry>
     <title>数据库基础总结</title>
-    <link href="http://lumpychen.github.io//zh-cn/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
-    <id>http://lumpychen.github.io//zh-cn/数据库基础总结/</id>
+    <link href="http://lumpychen.github.io/2017/zh-cn/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
+    <id>http://lumpychen.github.io/2017/zh-cn/数据库基础总结/</id>
     <published>2017-09-09T16:40:59.000Z</published>
     <updated>2017-09-11T14:43:53.000Z</updated>
     
@@ -116,8 +135,8 @@
   
   <entry>
     <title>认证授权</title>
-    <link href="http://lumpychen.github.io//zh-cn/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/"/>
-    <id>http://lumpychen.github.io//zh-cn/认证授权/</id>
+    <link href="http://lumpychen.github.io/2017/zh-cn/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/"/>
+    <id>http://lumpychen.github.io/2017/zh-cn/认证授权/</id>
     <published>2017-08-23T18:31:42.000Z</published>
     <updated>2017-10-07T06:29:58.000Z</updated>
     
@@ -138,8 +157,8 @@
   
   <entry>
     <title>Cleaverjs简介</title>
-    <link href="http://lumpychen.github.io//zh-cn/Cleaverjs%E7%AE%80%E4%BB%8B/"/>
-    <id>http://lumpychen.github.io//zh-cn/Cleaverjs简介/</id>
+    <link href="http://lumpychen.github.io/2016/zh-cn/Cleaverjs%E7%AE%80%E4%BB%8B/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/Cleaverjs简介/</id>
     <published>2016-10-18T13:29:19.000Z</published>
     <updated>2017-10-07T05:08:37.000Z</updated>
     
@@ -159,8 +178,8 @@
   
   <entry>
     <title>Javascript异步探讨</title>
-    <link href="http://lumpychen.github.io//zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
-    <id>http://lumpychen.github.io//zh-cn/Javascript异步编程/</id>
+    <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/Javascript异步编程/</id>
     <published>2016-10-17T10:17:02.000Z</published>
     <updated>2017-10-07T05:10:38.000Z</updated>
     
@@ -184,35 +203,9 @@
   </entry>
   
   <entry>
-    <title>Econometrics - OLS</title>
-    <link href="http://lumpychen.github.io//en/Econometrics-OLS/"/>
-    <id>http://lumpychen.github.io//en/Econometrics-OLS/</id>
-    <published>2016-10-06T05:53:33.000Z</published>
-    <updated>2016-10-15T08:27:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>This article contains notes of chapter 2 – Ordinary Least Squares.</p><p>In the first place, we build an agreement that the purpose of regression analysis is to take a purely theoretical equation:</p><p>$$ Y_i=\beta_0+\beta_1X_i+\varepsilon_i $$</p><p>and use a set of data to create an estimated equation:</p><p>$$ \hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_i $$</p><p>\(\hat{Y_i}\) is the same as \(E(Y|X)\)</p><p>Then, the emphasis of this chapter is on understanding what OLS attempts to do and how it goes about doing it.</p><a id="more"></a><h2 id="OLS"><a href="#OLS" class="headerlink" title="OLS"></a>OLS</h2><p>Ordinary Least Squares calcutes the \(\hat{\beta}\) so as to minimize the sum of the squared residuals:</p><p>$$ OLS_{min} \sum_{i=1}^N e_i^2 (i=1,2,…,N) $$</p><p>We can claim that Ordinary Least Square minimizes the value of \(\sum(Y_i-\hat{Y_i})\)</p><p>Why we use OLS?</p><ul><li>OLS is relative easy to use.</li><li>The goal of minimizing \(e^2\) is appropriate from theory.</li><li>OLS estimates have a number of useful characteristics.</li></ul><h2 id="How-OLS-works"><a href="#How-OLS-works" class="headerlink" title="How OLS works"></a>How OLS works</h2><p>In a Single-Independent-Variable regression model:</p><p>$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$</p><p>We know that:</p><p>$$ \sum e^2 = \sum (Y_i - \hat{\beta_0} -\hat{\beta_1}X_i)^2 $$</p><p>From an equation with just one independent variable, these coefficients are:</p><p>$$ \hat{\beta_1} = \frac{\sum_{i=1}^N[(X_i - X)(Y_i - Y)]}{\sum_{i=1}{N}(X_i - X)^2} $$</p><p>$$ \hat{\beta_0} = Y - \hat{\beta_1}X $$</p><p>In a mutivariate regression model, we also get the estimated coefficients expression, but it’s quite complicated, we prefer a computer’s calculation.</p><p>But we should learn that the key is:</p><blockquote><p>“Specifically, a multivariate coefficient indicates the change in the dependent variable associate with a one-unit increase in the independent variable in question <code>holding constant the other independent variables in the equation</code>.”</p><footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote><h2 id="Sum-of-Squares"><a href="#Sum-of-Squares" class="headerlink" title="Sum of Squares"></a>Sum of Squares</h2><p>To get a measure of the amount of variation to be explained by the regression, we use the squared variations, which called the total sum of squares.</p><p>The Total Sum of Squares:</p><p>$$ TSS = \sum_{i=1}^N(Y_i-Y)^2 $$</p><p>The total sum of squares has two components:</p><ul><li>variation which can be explained by the regression – the explained sum of squares</li><li>variation which can’t be explained by the regression – the residual sum of squares</li></ul><p>The explained sum of squares:</p><p>$$ ESS = \sum_{i=1}^N(\hat{Y_i}-Y)^2 $$</p><p>The residual sum of squares:</p><p>$$ RSS = \sum_{i=1}^N(Y_i-\hat{Y_i}) $$</p><p>The decomposition of variance:</p><p>$$ TSS = ESS+ RSS $$</p><h2 id="Describing-the-fit-of-a-estimated-model"><a href="#Describing-the-fit-of-a-estimated-model" class="headerlink" title="Describing the fit of a estimated model"></a>Describing the fit of a estimated model</h2><p>The simplest commonly used measure of fit is the coefficient of determination, \(R^2\), which equals to:</p><p>$$ R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}, and 0&lt;=R^1&lt;=1 $$</p><p>The higher \(R^2\) is, the closer the estimated regression equation fits it sample data.</p><blockquote><p>“Since OLS selects the parameter estimates that minimize RSS, OLS provides the largest possible \(R^2\), given a linear model.”</p><footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote><h2 id="Adjust-R-2"><a href="#Adjust-R-2" class="headerlink" title="Adjust \(R^2\)"></a>Adjust \(R^2\)</h2><p>If we add another independent variable to a particular equation, we will find the equation with the greater number of independent variables will always have a better (or equal) fit, and \(R^2\) won’t decrease.</p><p>In essence, \(R^2\)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This article contains notes of chapter 2 – Ordinary Least Squares.&lt;/p&gt;
-&lt;p&gt;In the first place, we build an agreement that the purpose of regression analysis is to take a purely theoretical equation:&lt;/p&gt;
-&lt;p&gt;$$ Y_i=\beta_0+\beta_1X_i+\varepsilon_i $$&lt;/p&gt;
-&lt;p&gt;and use a set of data to create an estimated equation:&lt;/p&gt;
-&lt;p&gt;$$ \hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_i $$&lt;/p&gt;
-&lt;p&gt;\(\hat{Y_i}\) is the same as \(E(Y|X)\)&lt;/p&gt;
-&lt;p&gt;Then, the emphasis of this chapter is on understanding what OLS attempts to do and how it goes about doing it.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="course" scheme="http://lumpychen.github.io/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS正则表达式快速入门</title>
-    <link href="http://lumpychen.github.io//zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
-    <id>http://lumpychen.github.io//zh-cn/Javascript正则表达式快速入门/</id>
+    <link href="http://lumpychen.github.io/2016/zh-cn/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/Javascript正则表达式快速入门/</id>
     <published>2016-09-26T02:26:09.000Z</published>
     <updated>2017-09-11T14:52:35.000Z</updated>
     
@@ -234,33 +227,31 @@
   </entry>
   
   <entry>
-    <title>Econometrics - Regression</title>
-    <link href="http://lumpychen.github.io//en/Econometrics-regression/"/>
-    <id>http://lumpychen.github.io//en/Econometrics-regression/</id>
-    <published>2016-09-18T07:05:31.000Z</published>
-    <updated>2016-10-15T08:27:06.000Z</updated>
+    <title>Apollo样式测试</title>
+    <link href="http://lumpychen.github.io/2016/zh-cn/Apollo%E6%A0%B7%E5%BC%8F%E6%B5%8B%E8%AF%95/"/>
+    <id>http://lumpychen.github.io/2016/zh-cn/Apollo样式测试/</id>
+    <published>2016-09-17T07:03:29.000Z</published>
+    <updated>2016-09-18T01:40:43.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><blockquote><p>“Econometrics, literally “econometric measurement”, is the quantitative measurement and analysis of actual econometric and business phenomena.”</p><footer><strong>-- A.H.Studenmund</strong></footer></blockquote><p>This article contains notes of this lesson.</p><a id="more"></a><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Econometrics is a combination of <code>mathematics</code>, <code>economics</code> and <code>statistics</code>.<br>Econometrics 3 uses:</p><ul><li>describing economic reality.</li><li>testing hypotheses about economic theory.</li><li>forecasting future economic activity.</li></ul><h2 id="Single-Regression"><a href="#Single-Regression" class="headerlink" title="Single Regression"></a>Single Regression</h2><blockquote><p>“To predict the <em>direction</em> of change, you need a knowledge of economic theory and the general characteristics of the product in question. To predict the <em>amount</em> of the change, though, you need a sample of data, and you need a way to estimate the relationship.”</p><footer><strong>A.H.Studenmund</strong><cite>-- Using Econometrics: A Pratical Guide</cite></footer></blockquote><p>The most frequently used method to estimate such a relationship in econometrics is <em>regression analysis</em>.</p><p>Regression Analysis:</p><ul><li>Dependent Variables</li><li>Independent Variables</li><li>Causality</li></ul><p>Aim at <code>Gross mean value</code> of dependent value, and <code>dependent relationship</code> of variable. (not <code>cause-and-effect relationship</code>)</p><p>$$Q_i=\beta_1 X_i + \beta_0 + \varepsilon_i, i=1,2,3…,N$$</p><ul><li>\(Q_i\) – The i th observation of the dependent variable.</li><li>\(X\) – The i th observation of the independent Variable.</li><li>\(\beta_0\) – Intercept(Constant)</li><li>\(\beta_1\) – Coefficient</li><li>\(\varepsilon_i\) – The i th observation of the stochastic error term (deviation).</li><li>\(N\) – The Number of observations.</li></ul><p>deterministic component &amp; Stochastic component:</p><p>$$ Y = E(Y|X) + \varepsilon = \beta_1 X + \beta_0 $$</p><p>We prefer linear equations to nonlinear, so if the relationship we analysis is not linear, we can doing the redefination like: \(z=x^2\).</p><p>After understanding the theoretical regression equation, it can be quantified to a estimated regression equation.</p><h2 id="Muti-Regression"><a href="#Muti-Regression" class="headerlink" title="Muti Regression"></a>Muti Regression</h2><p>$$ Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \varepsilon_i $$</p><p>For instance, here goes a multivariate linear regression model expression.</p><p>\(\beta_1\) in the equation means how much Y increases as every unit \(X_1\) increases and \(X_2\) stays still.</p><p>\(i\) represents the observation series, from 1 to \(N\)</p><h2 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h2><p>$$ \hat{Y_i} = 103.40 + 6.38 X_i $$</p><p>The variable with the hat symbol means the regression value.</p><p>Differences of theoretical regression equation &amp; estimated regression equation:</p><table><thead><tr><th style="text-align:center">\</th><th style="text-align:center">Theoretical equation</th><th style="text-align:center">Estimated equation</th></tr></thead><tbody><tr><td style="text-align:center">Expression</td><td style="text-align:center">\(Y_i=\beta_0+\beta_1 X_i + \varepsilon_i\)</td><td style="text-align:center">\(\hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_i\)</td></tr><tr><td style="text-align:center">Calculated expression</td><td style="text-align:center">-</td><td style="text-align:center">\(\hat{Y_i}=103.40+6.38X_i\)</td></tr><tr><td style="text-align:center">Base data</td><td style="text-align:center">-</td><td style="text-align:center">A sample of the Xs &amp; Ys</td></tr><tr><td style="text-align:center">Coefficient</td><td style="text-align:center">\(\beta\)</td><td style="text-align:center">calculated estimate values: 103.40</td></tr></tbody></table><p>The difference between error term &amp; residual:</p><table><thead><tr><th style="text-align:center">\</th><th style="text-align:center">Error term</th><th style="text-align:center">Residual</th></tr></thead><tbody><tr><td style="text-align:center">Error term/Residual</td><td style="text-align:center">\(\varepsilon_i=Y_i-E(Y_i &#124; X_i)\)</td><td style="text-align:center">\(e_i=Y_i - \hat{Y_i}\)</td></tr><tr><td style="text-align:center">what it means</td><td style="text-align:center">The difference between the observed \(Y\) &amp; estimated \(\hat{Y}\)</td><td style="text-align:center">The difference between the observed \(Y\) &amp; the regression expected value of \(Y\)</td></tr><tr><td style="text-align:center">Nature</td><td style="text-align:center">A theoretical concept which can’t be calculated.</td><td style="text-align:center">The estimate of \(\varepsilon\), each observation every time a regression runs</td></tr><tr><td style="text-align:center">Line</td><td style="text-align:center">True line</td><td style="text-align:center">Estimated line</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我可以在这里写一点东西作为主页的摘要，然而不方便融入<code>Markdown</code>语法的规范。<br><a id="more"></a></p><hr><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p><em>斜体字</em></p><p><strong> 粗体字</strong></p><p>无序列表：</p><ul><li>无序1</li><li>无序2</li><li>无序3</li></ul><p>有序列表：</p><ol><li>有序1</li><li>有序2</li><li>有序3<ol><li>缩进层级1<ol><li>缩进层级2</li></ol></li></ol></li></ol><blockquote><p>“我引用了一段话。”</p></blockquote><blockquote><p>“我引用了自己所说的一段话。”</p><footer><strong>@Lumpy -</strong><cite><a href="http://www.lumpychen.com" target="_blank" rel="noopener">www.lumpychen.com</a></cite></footer></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = <span class="string">'lumpy'</span></span><br><span class="line"><span class="keyword">const</span> speakName = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> speakName</span><br></pre></td></tr></table></figure><p>我写了一段<code>JavaScript</code>代码。</p><p>$$\frac{1}{9}\int_{1}^{10}X^2$$</p><p>我写了一个数学公式，<code>MathJax</code>发挥了它的效果。</p><div class="tip">而这里有一些要注意的地方。</div><p>表格</p><table><thead><tr><th style="text-align:center">存货种类</th><th style="text-align:center">仓库1</th><th style="text-align:center">仓库2</th></tr></thead><tbody><tr><td style="text-align:center">面包</td><td style="text-align:center">100</td><td style="text-align:center">200</td></tr><tr><td style="text-align:center">火腿</td><td style="text-align:center">90</td><td style="text-align:center">102</td></tr></tbody></table><p>我们别忘了插入音乐</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&id=2309174&auto=1&height=32"></iframe><p>以及图片</p><p><img src="http://cdn.quotesgram.com/img/0/51/2004674841-i-was-born-to-make-mistakes-a-drake-quotes-about-love-wonderful-drake-quotes-about-love-930x620.jpg" alt="jaime"></p><p>甚至视频</p><div class="owl-media owl-video owl-bilibili"><embed src="http://static.hdslb.com/miniloader.swf" flashvars="aid=6320264&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" quality="high" allowfullscreen="true"></div>]]></content>
     
     <summary type="html">
     
-      &lt;blockquote&gt;&lt;p&gt;“Econometrics, literally “econometric measurement”, is the quantitative measurement and analysis of actual econometric and business phenomena.”&lt;/p&gt;
-&lt;footer&gt;&lt;strong&gt;-- A.H.Studenmund&lt;/strong&gt;&lt;/footer&gt;&lt;/blockquote&gt;
-&lt;p&gt;This article contains notes of this lesson.&lt;/p&gt;
+      &lt;p&gt;我可以在这里写一点东西作为主页的摘要，然而不方便融入&lt;code&gt;Markdown&lt;/code&gt;语法的规范。&lt;br&gt;
     
     </summary>
     
     
-      <category term="course" scheme="http://lumpychen.github.io/tags/course/"/>
+      <category term="useless" scheme="http://lumpychen.github.io/tags/useless/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://lumpychen.github.io//en/hello-world/"/>
-    <id>http://lumpychen.github.io//en/hello-world/</id>
-    <published>2016-09-18T00:55:32.000Z</published>
-    <updated>2016-09-18T00:55:32.000Z</updated>
+    <link href="http://lumpychen.github.io/2016/en/hello-world/"/>
+    <id>http://lumpychen.github.io/2016/en/hello-world/</id>
+    <published>2016-09-17T07:03:29.000Z</published>
+    <updated>2017-12-09T15:23:08.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -277,26 +268,6 @@
       <category term="useless" scheme="http://lumpychen.github.io/tags/useless/"/>
     
       <category term="en" scheme="http://lumpychen.github.io/tags/en/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apollo样式测试</title>
-    <link href="http://lumpychen.github.io//zh-cn/Apollo%E6%A0%B7%E5%BC%8F%E6%B5%8B%E8%AF%95/"/>
-    <id>http://lumpychen.github.io//zh-cn/Apollo样式测试/</id>
-    <published>2016-09-17T07:03:29.000Z</published>
-    <updated>2016-09-18T01:40:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p>我可以在这里写一点东西作为主页的摘要，然而不方便融入<code>Markdown</code>语法的规范。<br><a id="more"></a></p><hr><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p><em>斜体字</em></p><p><strong> 粗体字</strong></p><p>无序列表：</p><ul><li>无序1</li><li>无序2</li><li>无序3</li></ul><p>有序列表：</p><ol><li>有序1</li><li>有序2</li><li>有序3<ol><li>缩进层级1<ol><li>缩进层级2</li></ol></li></ol></li></ol><blockquote><p>“我引用了一段话。”</p></blockquote><blockquote><p>“我引用了自己所说的一段话。”</p><footer><strong>@Lumpy -</strong><cite><a href="http://www.lumpychen.com" target="_blank" rel="noopener">www.lumpychen.com</a></cite></footer></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = <span class="string">'lumpy'</span></span><br><span class="line"><span class="keyword">const</span> speakName = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> speakName</span><br></pre></td></tr></table></figure><p>我写了一段<code>JavaScript</code>代码。</p><p>$$\frac{1}{9}\int_{1}^{10}X^2$$</p><p>我写了一个数学公式，<code>MathJax</code>发挥了它的效果。</p><div class="tip">而这里有一些要注意的地方。</div><p>表格</p><table><thead><tr><th style="text-align:center">存货种类</th><th style="text-align:center">仓库1</th><th style="text-align:center">仓库2</th></tr></thead><tbody><tr><td style="text-align:center">面包</td><td style="text-align:center">100</td><td style="text-align:center">200</td></tr><tr><td style="text-align:center">火腿</td><td style="text-align:center">90</td><td style="text-align:center">102</td></tr></tbody></table><p>我们别忘了插入音乐</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&id=2309174&auto=1&height=32"></iframe><p>以及图片</p><p><img src="http://cdn.quotesgram.com/img/0/51/2004674841-i-was-born-to-make-mistakes-a-drake-quotes-about-love-wonderful-drake-quotes-about-love-930x620.jpg" alt="jaime"></p><p>甚至视频</p><div class="owl-media owl-video owl-bilibili"><embed src="http://static.hdslb.com/miniloader.swf" flashvars="aid=6320264&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" quality="high" allowfullscreen="true"></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我可以在这里写一点东西作为主页的摘要，然而不方便融入&lt;code&gt;Markdown&lt;/code&gt;语法的规范。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="useless" scheme="http://lumpychen.github.io/tags/useless/"/>
     
   </entry>
   
