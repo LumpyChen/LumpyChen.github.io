@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lumpychen.github.io/2017/en/org-test-copy/</loc>
+    
+    <lastmod>2017-12-09T11:32:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lumpychen.github.io/2017/en/org-test/</loc>
+    
+    <lastmod>2017-12-09T11:31:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lumpychen.github.io/2017/zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2017-12-08T18:44:59.000Z</lastmod>

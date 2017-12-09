@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lumpychen.github.io/"/>
-  <updated>2017-12-08T18:36:12.000Z</updated>
+  <updated>2017-12-09T11:31:36.000Z</updated>
   <id>http://lumpychen.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>org-test</title>
+    <link href="http://lumpychen.github.io/2017/en/org-test/"/>
+    <id>http://lumpychen.github.io/2017/en/org-test/</id>
+    <published>2017-12-09T00:00:00.000Z</published>
+    <updated>2017-12-09T11:31:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> 标题一</h2><div class="outline-text-2" id="text-1"></div><div id="outline-container-sec-1-1" class="outline-3"><h3 id="sec-1-1"><span class="section-number-3">1.1</span> 标题二</h3><div class="outline-text-3" id="text-1-1"></div><div id="outline-container-sec-1-1-1" class="outline-4"><h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 标题三</h4><div class="outline-text-4" id="text-1-1-1"></div><ol class="org-ol"><li><a id="sec-1-1-1-1" name="sec-1-1-1-1"></a>标题四<br><ol class="org-ol"><li><a id="sec-1-1-1-1-1" name="sec-1-1-1-1-1"></a>标题五<br><div class="outline-text-6" id="text-1-1-1-1-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"><colgroup><col class="left"><col class="left"><col class="left"><col class="left"><col class="left"></colgroup><thead><tr><th scope="col" class="left">Name</th><th scope="col" class="left">Phone</th><th scope="col" class="left">sub1</th><th scope="col" class="left">sub2</th><th scope="col" class="left">total</th></tr></thead><tbody><tr><td class="left">Ali</td><td class="left">134****</td><td class="left">aaa</td><td class="left">bbb</td><td class="left">aaabbb</td></tr><tr><td class="left">Bill</td><td class="left">138****</td><td class="left">aaaa</td><td class="left">bbbb</td><td class="left">aaaabbbb</td></tr></tbody></table><p><b>bold</b><i>italic</i><span class="underline">underlined</span><code>code</code><code>verbatim</code><del>strike-through</del></p><p>Everything should be made as simple as possible,but not any simpler &#x2013; Albert Einstein</p><p>Everything should be made as simple as possible,but not any simpler</p><p>这里面的字符不会被转义</p><p>(+ 1 2 3 4)</p></div></li></ol></li></ol></div></div></div>Last Updated 2017-12-09 六 19:31.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;
+
+
+&lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;&lt;span class=&quot;section-number-2&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>org-test</title>
+    <link href="http://lumpychen.github.io/2017/en/org-test-copy/"/>
+    <id>http://lumpychen.github.io/2017/en/org-test-copy/</id>
+    <published>2017-12-09T00:00:00.000Z</published>
+    <updated>2017-12-09T11:32:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> 标题一</h2><div class="outline-text-2" id="text-1"></div><div id="outline-container-sec-1-1" class="outline-3"><h3 id="sec-1-1"><span class="section-number-3">1.1</span> 标题二</h3><div class="outline-text-3" id="text-1-1"></div><div id="outline-container-sec-1-1-1" class="outline-4"><h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 标题三</h4><div class="outline-text-4" id="text-1-1-1"></div><ol class="org-ol"><li><a id="sec-1-1-1-1" name="sec-1-1-1-1"></a>标题四<br><ol class="org-ol"><li><a id="sec-1-1-1-1-1" name="sec-1-1-1-1-1"></a>标题五<br><div class="outline-text-6" id="text-1-1-1-1-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"><colgroup><col class="left"><col class="left"><col class="left"><col class="left"><col class="left"></colgroup><thead><tr><th scope="col" class="left">Name</th><th scope="col" class="left">Phone</th><th scope="col" class="left">sub1</th><th scope="col" class="left">sub2</th><th scope="col" class="left">total</th></tr></thead><tbody><tr><td class="left">Ali</td><td class="left">134****</td><td class="left">aaa</td><td class="left">bbb</td><td class="left">aaabbb</td></tr><tr><td class="left">Bill</td><td class="left">138****</td><td class="left">aaaa</td><td class="left">bbbb</td><td class="left">aaaabbbb</td></tr></tbody></table><p><b>bold</b><i>italic</i><span class="underline">underlined</span><code>code</code><code>verbatim</code><del>strike-through</del></p><p>Everything should be made as simple as possible,but not any simpler &#x2013; Albert Einstein</p><p>Everything should be made as simple as possible,but not any simpler</p><p>这里面的字符不会被转义</p><p>(+ 1 2 3 4)</p></div></li></ol></li></ol></div></div></div>Last Updated 2017-12-09 六 19:32.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/owl.css&quot;&gt;
+
+
+&lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;&lt;span class=&quot;section-number-2&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>draft</title>
