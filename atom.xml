@@ -48,9 +48,9 @@ Last Updated 2017-12-09 六 23:20.&lt;br&gt;Render by &lt;a href=&quot;https://g
     <link href="http://lumpychen.github.io/2017/zh-cn/org-test/"/>
     <id>http://lumpychen.github.io/2017/zh-cn/org-test/</id>
     <published>2017-12-09T00:00:00.000Z</published>
-    <updated>2017-12-09T15:06:36.000Z</updated>
+    <updated>2017-12-09T15:40:09.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p><code>Emacs</code> 的 <code>org-mode</code> 是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener"> <i>weychen</i> 的文章之后</a> 我按照文章的流程搭建了我的工作流，同时写下了这篇文章去简单介绍下 <code>org-mode</code> 的语法。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 23:06.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/owl.css"><p><code>Emacs</code> 的 <code>org-mode</code> 是非常强大的工具，阅读了<a href="http://weychen.github.io/2016/09/28/set-up-blog-with-hexo-org-mode/" target="_blank" rel="noopener"> <i>weychen</i> 的文章之后</a> 我按照文章的流程搭建了我的工作流，同时写下了这篇文章去简单介绍下 <code>org-mode</code> 的语法。</p><a id="more"></a><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1">Org-mode实例</h2><div class="outline-text-2" id="text-1"><ul class="org-ul"><li>无序列表</li><li>无序列表</li><li>无序列表<ul class="org-ul"><li>无序列表2</li><li>无序列表2</li><li>无序列表2</li></ul></li></ul><ol class="org-ol"><li><code>[-]</code> 有序列表 <code>[33%]</code><ol class="org-ol"><li><code>[&#xa0;]</code> 子列表1</li><li><code>[X]</code> 子列表2</li><li><code>[&#xa0;]</code> 子列表3</li></ol></li><li><code>[&#xa0;]</code> 有序列表2</li><li></li></ol></div></div>Last Updated 2017-12-09 六 23:40.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)]]></content>
     
     <summary type="html">
     
@@ -60,6 +60,10 @@ Last Updated 2017-12-09 六 23:20.&lt;br&gt;Render by &lt;a href=&quot;https://g
     
     </summary>
     
+    
+      <category term="Emacs" scheme="http://lumpychen.github.io/tags/Emacs/"/>
+    
+      <category term="Org" scheme="http://lumpychen.github.io/tags/Org/"/>
     
   </entry>
   
