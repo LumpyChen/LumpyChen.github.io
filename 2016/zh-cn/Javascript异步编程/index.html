@@ -6,7 +6,8 @@
 <blockquote><p>运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列。所以当多个事件触发时，会依次放入队列，然后一个一个响应。</p>
 <footer><strong>@云澹</strong></footer></blockquote>
 <a id="more"></a>
-<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>在<code>Javascript</code>的主线程中，我们有一个<code>堆(heap)</code>和<code>栈(stack)</code>的结构：</p>
+<h2 id="单线程"><a class="markdownIt-Anchor" href="#单线程"></a> 单线程</h2>
+<p>在<code>Javascript</code>的主线程中，我们有一个<code>堆(heap)</code>和<code>栈(stack)</code>的结构：</p>
 <p><img src="http://image.slidesharecdn.com/sonlejs-event-loop-160805060652/95/javascript-event-loop-11-638.jpg?cb=1470377352" alt="heap&amp;stack"></p>
 <p>其中：</p>
 <ul>
@@ -32,7 +33,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Uncaught Error: 发生了错误(…)  VM1436:1</span><br><span class="line">  foo @ VM14136:1</span><br><span class="line">  bar @ VM14205:1</span><br><span class="line">  printDouble @ VM14298:1</span><br><span class="line">  (anonymous function) @ VM14324:1</span><br></pre></td></tr></table></figure>
 <p>我们得到从上到下的结果就是所谓的<code>访问栈</code></p>
 <p>当我们得到了<code>RangeError: maximum call stack size exceeded</code>的报错信息时，就代表我们的访问栈的大小不够了，去检查你的程序中有没有进行无限循环调用的语句吧 : )</p>
-<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>因为<code>Javascript</code>是单线程，一个<code>Javascript</code>程序只有一个<code>访问栈</code>，函数语句按照进入的顺序一个接一个地被执行，前一个结束，才轮到后一个开始</p>
+<h2 id="同步与异步"><a class="markdownIt-Anchor" href="#同步与异步"></a> 同步与异步</h2>
+<p>因为<code>Javascript</code>是单线程，一个<code>Javascript</code>程序只有一个<code>访问栈</code>，函数语句按照进入的顺序一个接一个地被执行，前一个结束，才轮到后一个开始</p>
 <p>然而有的时候，某些函数语句的主要时间消耗并不在<code>CPU</code>上，而是在输入输出设备（包括网络）上面，比如<code>Ajax</code>，这样的任务消耗了很多时间，从而阻塞了后续任务的执行，同时也浪费了<code>CPU</code>的资源</p>
 <p>单线程任务同步执行的优势就是清晰易于理解，其缺陷就是经常会出现这种情况</p>
 <p>为了解决这个问题，我们把要执行的任务分为两种：<code>同步(synchronous)</code>和<code>异步(asynchronous)</code></p>
@@ -50,7 +52,8 @@
 <li>当你使用<code>readFile</code>时，最后一个参数为<code>回调函数</code>，响应返回时会被异步执行</li>
 <li>当你使用<code>readFileSync</code>时，下一个语句一定是在<code>readFileSync</code>的文件操作结束返回结果后进行的</li>
 </ul>
-<h2 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h2><p>以下几类任务被当做异步任务：</p>
+<h2 id="异步任务"><a class="markdownIt-Anchor" href="#异步任务"></a> 异步任务</h2>
+<p>以下几类任务被当做异步任务：</p>
 <ul>
 <li><code>DOM</code>事件监听</li>
 <li><code>XMLHttpRequest</code></li>
@@ -59,7 +62,8 @@
 <p>注意，<code>DOM</code>事件监听 – <code>addEventListener</code>函数就是异步过程的发起函数，事件监听器函数就是异步过程的回调函数，事件触发时，表示异步任务完成，会将事件监听器函数封装成一个任务放到<code>任务队列</code>中，等待主线程执行，事件冒泡时，多条任务按照事件冒泡的顺序进入<code>任务队列</code></p>
 <p>而<code>onclick</code>,<code>onchange</code>等的<code>handler</code>函数也是异步执行的，同理</p>
 <p>异步任务伴随着<code>回调函数</code> —— 在任务时机成熟时执行的函数，<code>回调函数</code>是异步调用，也就是所谓事件驱动的</p>
-<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p><code>Javascript</code>线程中有一个<code>任务队列</code>：保存着等待执行的异步任务的队列</p>
+<h2 id="任务队列"><a class="markdownIt-Anchor" href="#任务队列"></a> 任务队列</h2>
+<p><code>Javascript</code>线程中有一个<code>任务队列</code>：保存着等待执行的异步任务的队列</p>
 <p>观察一下所谓的<code>事件队列的模型</code>：</p>
 <p><img src="http://images.cnitblog.com/blog2015/221923/201503/171756342043920.png" alt="模型"></p>
 <p>我们举个关于<code>setTimeout</code>的例子：</p>
@@ -69,45 +73,49 @@
 <li><code>setTimeout</code>进栈</li>
 <li>调用<code>setTimeout</code>的<code>API</code>，设置一个定时器，5秒钟之后<code>回调函数</code>加入<code>任务队列</code></li>
 <li><code>setTimeout</code>出栈</li>
-<li><code>console.log(&#39;end!&#39;)</code>进栈</li>
-<li><code>console.log(&#39;end!&#39;)</code>出栈</li>
+<li><code>console.log('end!')</code>进栈</li>
+<li><code>console.log('end!')</code>出栈</li>
 <li>主线程出栈</li>
 <li>事件轮询，任务队列中的匿名函数进栈</li>
-<li><code>console.log(&#39;Timeout!&#39;)</code>进栈</li>
-<li><code>console.log(&#39;Timeout!&#39;)</code>出栈</li>
+<li><code>console.log('Timeout!')</code>进栈</li>
+<li><code>console.log('Timeout!')</code>出栈</li>
 <li>匿名函数出栈</li>
 </ol>
 <p>每当<code>访问栈</code>空的时候，栈会执行<code>事件轮询</code>操作，从<code>任务队列</code>里面读取任务并执行</p>
 <p>所以，异步过程的<code>回调函数</code>，一定不在当前这一轮事件循环中执行</p>
-<h2 id="单线程和异步"><a href="#单线程和异步" class="headerlink" title="单线程和异步"></a>单线程和异步</h2><p>所以像<code>setTimeout</code>这样的异步任务不一定会准确执行</p>
+<h2 id="单线程和异步"><a class="markdownIt-Anchor" href="#单线程和异步"></a> 单线程和异步</h2>
+<p>所以像<code>setTimeout</code>这样的异步任务不一定会准确执行</p>
 <p>我们先看一下回答中的代码段：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"first"</span>)</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'second'</span>)</span><br><span class="line">  &#125;,<span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">  foo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 执行结果为：first*1000000, second*1000000</span></span><br></pre></td></tr></table></figure>
 <p>按照我们正常的思维，我们执行1000000次<code>foo</code>函数，每执行一次都会设置一个五毫秒的定时器，然后<code>console.log</code>出<code>&quot;second&quot;</code>，但是我们发现控制台在几秒内一直在重复弹出<code>&quot;first&quot;</code>（这段时间远大于五毫秒），并没有<code>second</code>在这段时间弹出，直到所有<code>first</code>全部弹出完毕</p>
 <p>现在我们能理解这个问题了，只有<code>访问栈</code>里面的任务全部推出之后，<code>任务队列</code>里面的<code>回调函数</code>才会开始执行，所以在<code>first</code>没有完成输出之前，异步调用的<code>second</code>不会执行</p>
 <p>我们同时可以理解<code>foo()</code>和<code>setTimeout(foo,0)</code>的具体区别了</p>
-<h2 id="在React出现的一点点问题"><a href="#在React出现的一点点问题" class="headerlink" title="在React出现的一点点问题"></a>在React出现的一点点问题</h2><p>在<code>React</code>中，<code>setState</code>函数是异步执行的，如果你在<code>Component</code>的方法里面先调用<code>setState</code>再调用<code>this.state</code>，你会发现后面<code>this.state</code>得到的值与前面<code>setState</code>设置的值不一样，得到的仍然是<code>setState</code>之前的值</p>
+<h2 id="在react出现的一点点问题"><a class="markdownIt-Anchor" href="#在react出现的一点点问题"></a> 在React出现的一点点问题</h2>
+<p>在<code>React</code>中，<code>setState</code>函数是异步执行的，如果你在<code>Component</code>的方法里面先调用<code>setState</code>再调用<code>this.state</code>，你会发现后面<code>this.state</code>得到的值与前面<code>setState</code>设置的值不一样，得到的仍然是<code>setState</code>之前的值</p>
 <p>看完前面的分析，我想这并不那么难以理解了：<code>setState</code>会进入<code>任务队列</code>，直到<code>访问栈</code>被清空，才会执行<code>事件轮询</code>，从而执行<code>任务队列</code>中的任务</p>
 <p>我在<code>React</code>的开发中遇到过如下的问题：</p>
 <p><a href="http://stackoverflow.com/questions/28922275/in-reactjs-why-does-setstate-behave-differently-when-called-synchronously" target="_blank" rel="noopener">这个问题</a>讲述了同步/异步调用<code>setState</code>的区别</p>
 <p><a href="http://jsbin.com/dawezapoga/edit?js,console,output" target="_blank" rel="noopener">这个jsbin</a>上面存在相关的实例：</p>
-<p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br><code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
-<div class="tip"><br>注意：这是一个<a href="https://facebook.github.io/react/docs/forms.html#controlled-components" target="_blank" rel="noopener">Controlled Components</a>，会忽视用户对<code>input.value</code>在<code>DOM</code>上的改变，但<code>e.target.value</code>的值是用户在<code>input</code>上改变后的值<br></div>
-
+<p><code>Setting value</code>代表<code>render</code>时<code>State</code>里面的内容<br>
+<code>Current value</code>代表<code>render</code>时，用<code>getDOMNode</code>得到的<code>DOM</code>里面的属性</p>
+<div class="tip">
+注意：这是一个[Controlled Components](https://facebook.github.io/react/docs/forms.html#controlled-components)，会忽视用户对`input.value`在`DOM`上的改变，但`e.target.value`的值是用户在`input`上改变后的值
+</div>
 <p>我把 @FakeRainBrigand 的答案 以及自己的理解，进行了结合，得到了下面的过程</p>
 <p>同步调用：</p>
 <ol>
 <li>输入<code>X</code>到<code>input</code>标签里面</li>
 <li><code>input.value</code>不变，触发<code>onchange</code>事件</li>
 <li>执行事件处理函数<code>onchange</code></li>
-<li>执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
-<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是<code>&#39;HelXlo&#39;</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
+<li>执行<code>setState({value: 'HelXlo'})</code></li>
+<li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是<code>'HelXlo'</code>，将<code>DOM</code>操作加入<code>任务队列</code></li>
 <li><code>onchange</code>任务结束，将<code>render</code>加入<code>任务队列</code></li>
-<li>执行<code>事件轮询</code>，依次执行<code>DOM</code>操作与<code>render</code><ul>
-<li><code>DOM</code>操作将<code>input.value</code>改为当前<code>state</code>的值<code>为&#39;HelXlo&#39;</code></li>
-<li><code>render</code>，此时<code>state</code>里面<code>value</code>和<code>DOM</code>里面<code>input.value</code>都是<code>&#39;HelXlo&#39;</code></li>
-</ul>
-</li>
+<li>执行<code>事件轮询</code>，依次执行<code>DOM</code>操作与<code>render</code></li>
 </ol>
+<ul>
+<li><code>DOM</code>操作将<code>input.value</code>改为当前<code>state</code>的值<code>为'HelXlo'</code></li>
+<li><code>render</code>，此时<code>state</code>里面<code>value</code>和<code>DOM</code>里面<code>input.value</code>都是<code>'HelXlo'</code></li>
+</ul>
 <p>异步调用：</p>
 <ol>
 <li>输入<code>X</code>到<code>input</code>标签里面</li>
@@ -115,13 +123,14 @@
 <li>执行事件处理函数<code>onchange</code>，将<code>setState</code>的定时器加入<code>任务队列</code></li>
 <li><code>onchange</code>任务结束，将<code>render</code>加入<code>任务队列</code></li>
 <li>进行<code>事件轮询</code>，执行了<code>任务队列</code>中的定时器，执行<code>setState</code></li>
-<li>执行<code>setState({value: &#39;HelXlo&#39;})</code></li>
+<li>执行<code>setState({value: 'HelXlo'})</code></li>
 <li>进行虚拟<code>DOM</code>的<code>Diff</code>操作，识别出<code>input.value</code>应该是’Hello’<code>，将</code>DOM<code>操作加入</code>任务队列`</li>
-<li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>&#39;HelXlo&#39;</code>，但<code>DOM</code>上<code>input.value</code>为<code>&#39;Hello&#39;</code></li>
-<li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>&#39;HelXlo&#39;</code>（此时<code>DOM</code>更新令光标被置于<code>input</code>末尾）</li>
+<li><code>render</code>，此时<code>state</code>里面<code>value</code>为<code>'HelXlo'</code>，但<code>DOM</code>上<code>input.value</code>为<code>'Hello'</code></li>
+<li>执行<code>任务队列</code>后面的任务，进行DOM操作，改变<code>input.value</code>为<code>'HelXlo'</code>（此时<code>DOM</code>更新令光标被置于<code>input</code>末尾）</li>
 </ol>
-<div class="tip"><br>有一点小小的 <strong>魔法</strong>： <code>React</code>会在<code>onchange</code>这种<code>事件处理函数</code>后异步调用<code>render</code>方法（而<code>DOM</code>操作也是异步执行的，别忘了）<br></div>
-
+<div class="tip">
+有一点小小的 **魔法**： `React`会在`onchange`这种`事件处理函数`后异步调用`render`方法（而`DOM`操作也是异步执行的，别忘了）
+</div>
 <p>通过各种猜想和实验，我得到了上面的结果</p>
 <p>我不确认自己的想法是对的，所以这篇博客先放在这里，等我对源码有了更深的理解在回来证实和修改</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2016/zh-cn/Cleaverjs简介/" class="prev">上一篇</a><a href="/2016/zh-cn/Javascript正则表达式快速入门/" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2017 <a href="http://lumpychen.github.io">Lumpy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

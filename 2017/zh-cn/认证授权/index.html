@@ -2,18 +2,24 @@
 <p>客户端和服务器之间是不能保持一种“链接状态”的，所以说<code>HTTP</code>是一个无状态协议</p>
 <p>为了实现用户登录的一种状态，实现认证和授权，我们该怎么做呢？</p>
 <a id="more"></a>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p><code>cookie</code>是客户端浏览器上的专属于某个域名的一个小文件，用于服务端确认客户端</p>
-<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>客户端：浏览器每次发出请求的时候都会携带着<code>cookie</code>信息在<code>HTTP</code>的头信息里给服务器</p>
+<h2 id="cookie"><a class="markdownIt-Anchor" href="#cookie"></a> Cookie</h2>
+<p><code>cookie</code>是客户端浏览器上的专属于某个域名的一个小文件，用于服务端确认客户端</p>
+<h4 id="特征"><a class="markdownIt-Anchor" href="#特征"></a> 特征</h4>
+<p>客户端：浏览器每次发出请求的时候都会携带着<code>cookie</code>信息在<code>HTTP</code>的头信息里给服务器</p>
 <p>服务器端：<code>cookie</code>一般都是在服务器端设置的，通过<code>HTTP</code>响应的头部：<code>Set-Cookie</code>返回给浏览器，浏览器拿到这些数据就可以保存到自己的<code>cookie</code>文件中</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<h4 id="缺点"><a class="markdownIt-Anchor" href="#缺点"></a> 缺点</h4>
+<ul>
 <li>每个域名最多只能有20条<code>cookie</code>，长度不能超过4KB</li>
 <li>安全性问题。如果<code>cookie</code>被人拦截了，那人转发就可以取得所有的会话权限</li>
 <li>浪费带宽</li>
 <li>不可以跨域调用</li>
 </ul>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p><code>session</code>的含义是“会话”（或者也叫对话，<code>session</code>的本意是“一段时间”）,</p>
-<h4 id="特征-1"><a href="#特征-1" class="headerlink" title="特征"></a>特征</h4><p>每次有一个新的浏览器用户登录进来，服务器端都会创建一个新的<code>session</code>，那么在这个<code>session</code>之中，服务器就可以为这位特定用户（其实就是为特定的那个浏览器）保存任意信息了</p>
-<h4 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h4><p>但是同一时刻，连接到服务器的浏览器可能成千上万，那么服务器是如何区分不同用户的浏览器的呢？</p>
+<h2 id="session"><a class="markdownIt-Anchor" href="#session"></a> Session</h2>
+<p><code>session</code>的含义是“会话”（或者也叫对话，<code>session</code>的本意是“一段时间”）,</p>
+<h4 id="特征-2"><a class="markdownIt-Anchor" href="#特征-2"></a> 特征</h4>
+<p>每次有一个新的浏览器用户登录进来，服务器端都会创建一个新的<code>session</code>，那么在这个<code>session</code>之中，服务器就可以为这位特定用户（其实就是为特定的那个浏览器）保存任意信息了</p>
+<h4 id="认证"><a class="markdownIt-Anchor" href="#认证"></a> 认证</h4>
+<p>但是同一时刻，连接到服务器的浏览器可能成千上万，那么服务器是如何区分不同用户的浏览器的呢？</p>
 <p>“使用<code>cookie</code>”</p>
 <p>具体来说，每个服务器端的 session 被创建的时候，都会有一个<code>sessionId</code></p>
 <p>被创建的时<code>sessionId</code>都会自动的被发送到浏览器的<code>cookie</code>中，这样，每个浏览器就跟自己在服务器上的<code>session</code>有了绑定关系了</p>
