@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lumpychen.github.io/2017/zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/</loc>
+    
+    <lastmod>2017-12-20T14:24:52.449Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lumpychen.github.io/2017/zh-cn/org-test/</loc>
     
     <lastmod>2017-12-10T18:18:36.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://lumpychen.github.io/2016/en/hello-world/</loc>
     
     <lastmod>2017-12-09T15:23:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lumpychen.github.io/2017/zh-cn/%E6%88%91%E7%9A%84emacs%E6%8C%89%E9%94%AE%E6%B1%87%E6%80%BB/</loc>
-    
-    <lastmod>2017-12-08T18:44:59.000Z</lastmod>
     
   </url>
   
